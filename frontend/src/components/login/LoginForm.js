@@ -42,30 +42,34 @@ function LoginForm() {
       <div className="box2">
         <form onSubmit={handleSubmit}>
           <p id="loginp">로그인</p>
+          <div className="loginspacing1"></div>
+          <div className="input-container">
           <input
             type="text"
             value={id}
             placeholder="아이디"
             onChange={(e) => setId(e.target.value)}
           />
-          <div className="spacing"></div>
+          <div className="loginspacing"></div>
           <input
             type="password"
             value={password}
             placeholder="비밀번호"
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
+          <div className="loginspacing2"></div>
           <p>
-            <button type="submit">로그인</button>
+            <button type="submit" className="loginbtn">로그인</button>
           </p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button onClick={() => navigate("/join")}>회원가입</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button onClick={() => navigate("/FindId")}>아이디 찾기</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button onClick={() => navigate("/FindPassword")}>
-            비밀번호 찾기
-          </button>
+          <div className="loginspacing3"></div>
+          <div className="idpw">
+            <button onClick={() => navigate("/join")}>회원가입</button>
+            <button onClick={() => navigate("/FindId")}>아이디 찾기</button>
+            <button onClick={() => navigate("/FindPassword")}>
+              비밀번호 찾기
+            </button>
+          </div>
         </form>
       </div>
     </div>

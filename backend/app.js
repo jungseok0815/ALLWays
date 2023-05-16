@@ -9,15 +9,36 @@ const findPasswordRouter = require('./src/routes/findpassword/findPassword');
 const sendEmail_IdRouter = require('./src/routes/findid/sendEmail-id');
 const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-password');
 const checkCodeRouter = require('./src/routes/findpassword/sendEmail-password');
+const favoriteRouter = require('./src/routes/FavoritesData/FavoritesData');
 // const version = require('./src/routes/version');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const {sequelize, User} = require('./models');
-const mysql = require('mysql2');
+const session = require('express-session');
+const MySQLStore = require("express-mysql-session")(session);
+
+
 
 const app = express();
 
 
+const options = {
+  host: "127.0.0.1",
+  user: "root",
+  port: 3306,
+  password: "9401",
+  database: "mapproject",
+};
+
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    store: new MySQLStore(options),
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.set('port', process.env.PORT || 3001);
 
 // 'html' 확장자를 사용하는 파일을 렌더링하는 엔진 설정
@@ -50,7 +71,10 @@ app.use('/api/findPassword', findPasswordRouter);
 app.use('/api/sendEmail-id', sendEmail_IdRouter);
 app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
 app.use('/api/checkResetCode', checkCodeRouter);
+app.use('/api/favorite',favoriteRouter)
 // app.use('/version', version);
+
+
 
 
 app.use((req, res, next) => {
@@ -65,6 +89,9 @@ app.use((err, req, res, next)=>{
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 
 

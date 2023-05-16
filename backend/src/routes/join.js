@@ -24,8 +24,7 @@ router.post('/', async (req, res) => {
     });
     return res.status(201).send({ message: '회원 가입이 완료되었습니다.' });
   } catch (error) {
-    console.error(error);
-    return res.status(500).send({ message: '서버 오류로 회원 가입에 실패하였습니다.' });
+    console.error("오류가 발생했습니다.");
   }
 });
 

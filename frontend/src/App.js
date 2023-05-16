@@ -17,10 +17,8 @@ function App() {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/findid" element={<FindId />} />
         <Route path="/findpassword" element={<FindPassword />} />
+        <Route path="/ResetPassword" element={<ResetPassword />} />
         <Route path="/join" element={<Join />} />
-      </Routes>
-      <Routes>
-        <Route path="/ResetPassword/:resetToken" element={<ResetPassword />} />
       </Routes>
     </Router>
   );

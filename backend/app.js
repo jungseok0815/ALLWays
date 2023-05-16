@@ -8,7 +8,8 @@ const findIdRouter = require('./src/routes/findid/findId');
 const findPasswordRouter = require('./src/routes/findpassword/findPassword');
 const sendEmail_IdRouter = require('./src/routes/findid/sendEmail-id');
 const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-password');
-const checkCodeRouter = require('./src/routes/findpassword/sendEmail-password');
+const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
+const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
 // const version = require('./src/routes/version');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
@@ -50,6 +51,8 @@ app.use('/api/findPassword', findPasswordRouter);
 app.use('/api/sendEmail-id', sendEmail_IdRouter);
 app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
 app.use('/api/checkResetCode', checkCodeRouter);
+app.use('/api/changePassword', changePasswordRouter);
+
 // app.use('/version', version);
 
 

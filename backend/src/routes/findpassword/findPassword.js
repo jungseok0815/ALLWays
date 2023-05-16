@@ -22,9 +22,9 @@ router.post('/', async (req, res) => {
     // 해당 정보를 가진 사용자가 있는 경우
     return res.status(200).json({ message: '사용자 정보를 확인 중입니다.' });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: '서버 오류가 발생하였습니다.' });
+    console.error("오류가 발생했습니다.");
   }
 });
+
 
 module.exports = router;

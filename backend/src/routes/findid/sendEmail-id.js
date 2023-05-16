@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     const info = await mail.sendMail(mailForm);
     res.status(200).json({ message: '아이디가 이메일로 전송되었습니다.' });
   } catch (error) {
-    console.error('오류가 발생했습니다.');
+    console.error("오류가 발생했습니다.");
   }
 });
 

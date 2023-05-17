@@ -8,12 +8,12 @@ function Join() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [realname, setRealname] = useState("");
   const [email, setEmail] = useState("");
-
-
+  
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
 
     if (!id) {
       alert("아이디를 입력해주세요!");

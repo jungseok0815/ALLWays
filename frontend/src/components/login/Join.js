@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./Join.css";
 
 function Join() {
   const [id, setId] = useState("");
@@ -8,7 +9,6 @@ function Join() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [realname, setRealname] = useState("");
   const [email, setEmail] = useState("");
-
 
   const navigate = useNavigate();
 
@@ -63,64 +63,77 @@ function Join() {
       });
   };
 
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h1>Signup Page</h1>
-        <button onClick={() => navigate("/")}>
-        로그인 페이지로 이동
-        </button>
-        <hr />
-
-        <label>
-          아이디:
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          비밀번호 확인:
-          <input
-            type="password"
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          이름:
-          <input
-            type="text"
-            value={realname}
-            onChange={(e) => setRealname(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          이메일:
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div class="outer2">
+      <form onSubmit={handleSubmit}>
+        <div className="joinbox">
+          <h1 id="join">회원가입</h1>
+          <button onClick={() => navigate("/")} class="loginbtn2">로그인 페이지로 이동</button>
+          <hr />
+          <div class="join_row">
+            <h3 class="join_title">
+              <label for="id">아이디</label>
+            </h3>
+            <span class="ps_box int_id">
+              <input
+                type="text"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+            </span>
+          </div>
+          <div class="join_row">
+            <h3 class="join_title">
+              <label for="password">비밀번호</label>
+            </h3>
+            <span class="ps_box int_pass">
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </span>
+            </div>
+            <div class="join_row">
+            <h3 class="join_title">
+              <label for="passwordConfirm">비밀번호 확인</label>
+            </h3>
+            <span class="ps_box int_pass_check">
+              <input
+                type="password"
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+              />
+            </span>
+          </div>
+          <div class="join_row">
+            <h3 class="join_title">
+              <label for="realname">이름</label>
+            </h3>
+            <span class="ps_box box_right_space">
+              <input
+                type="text"
+                value={realname}
+                onChange={(e) => setRealname(e.target.value)}
+              />
+            </span>
+          </div>
+          <div class="join_row">
+            <h3 class="join_title">
+              <label for="email">이메일</label>
+            </h3>
+            <span class="ps_box int_email box_right_space">
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </span>
+          </div>
+          <button type="submit" class="submitbtn">가입하기</button>
+        </div>
+      </form>
+    </div>
   );
 }
 

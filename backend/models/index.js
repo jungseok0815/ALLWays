@@ -11,6 +11,10 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.User = require('./user')(sequelize, Sequelize);
+db.Favorites = require('./favorites')(sequelize, Sequelize);
+//테이블관의 관계 정의
+// db.User.hasMany(Favorites, { as: 'Favorites', foreignKey: 'id' });
+// db.Favorites.belongsTo(User, { as: 'User', foreignKey: 'id' });
 
 sequelize.sync();
 

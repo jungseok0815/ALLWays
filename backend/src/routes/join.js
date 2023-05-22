@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
     if (existId) {
       return res
         .status(409)
-        .send({ message: "이미 존재하는 사용자 이름입니다." });
+        .send({ message: "이미 존재하는 아이디입니다." });
     }
     const regularExpression_id = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,16}$/;
     if (!regularExpression_id.test(id)) {

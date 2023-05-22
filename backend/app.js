@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const corsMiddleware = require('./src/middleware/cors');
@@ -17,24 +18,25 @@ const nunjucks = require('nunjucks');
 const {sequelize, User} = require('./models');
 const session = require('express-session');
 const MySQLStore = require("express-mysql-session")(session);
-
+const env = process.env;
 
 
 const app = express();
 
+app.use(cors());
 
 const options = {
-  host: "127.0.0.1",
-  user: "root",
-  port: 3306,
-  password: "9401",
-  database: "mapproject",
+  host: env.DATABASE_HOST,
+  user: env.DATABASE_USER,
+  port: env.DATABASE_PORT,
+  password: env.DATABASE_PASSWORD,
+  database: env.DATABASE_DATABASE,
 };
 
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: env.SESSION_SECRET,
     store: new MySQLStore(options),
     resave: false,
     saveUninitialized: false,
@@ -59,6 +61,7 @@ sequelize.sync({force: false}).then(()=> {
   console.error(err);
 });
 
+
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -79,7 +82,6 @@ app.use('/api/changePassword', changePasswordRouter);
 
 
 // app.use('/version', version);
-
 
 
 

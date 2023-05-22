@@ -24,9 +24,7 @@ router.post('/', async (req, res, next) => {
     req.session.save(function () {
     res.send(true);
     });
-   
   } catch (error) {
-    
     res.status(500).send({ message: '서버 오류가 발생했습니다.' });
   }
 });

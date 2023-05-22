@@ -1,0 +1,87 @@
+.findidbox {
+  background-color: white;
+  width: 480px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: content-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  margin-top: 50px;
+}
+
+.h {
+  margin-top: 50px;
+}
+
+.findidbox .row {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.findidbox .row input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 230px;
+}
+
+.findidbox .row label {
+  flex-basis: 80px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.findname {
+  letter-spacing: 10px;
+}
+
+.findemail {
+  letter-spacing: 2px;
+  padding-right: 5px;
+}
+
+.buttons2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.buttons2 button {
+  width: 140px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(051, 82, 143, 0.9);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+.line {
+  margin-top: 45px;
+  width: 380px;
+  margin-bottom: 70px;
+}
+
+.findidbtn {
+  margin-left: 6px;
+  margin-top: 50px;
+  border: none;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  letter-spacing: 5px;
+  background-color: rgb(051, 82, 143);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}

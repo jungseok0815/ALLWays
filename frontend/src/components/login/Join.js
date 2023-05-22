@@ -64,17 +64,19 @@ function Join() {
   };
 
   return (
-    <div class="outer2">
+    <div className="outer2">
       <form onSubmit={handleSubmit}>
         <div className="joinbox">
           <h1 id="join">회원가입</h1>
-          <button onClick={() => navigate("/")} class="loginbtn2">로그인 페이지로 이동</button>
+          <button onClick={() => navigate("/")} className="loginbtn2">
+            로그인 페이지로 이동
+          </button>
           <hr />
-          <div class="join_row">
-            <h3 class="join_title">
+          <div className="join_row">
+            <h3 className="join_title">
               <label for="id">아이디</label>
             </h3>
-            <span class="ps_box int_id">
+            <span className="ps_box int_id">
               <input
                 type="text"
                 value={id}
@@ -82,23 +84,23 @@ function Join() {
               />
             </span>
           </div>
-          <div class="join_row">
-            <h3 class="join_title">
+          <div className="join_row">
+            <h3 className="join_title">
               <label for="password">비밀번호</label>
             </h3>
-            <span class="ps_box int_pass">
+            <span className="ps_box int_pass">
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </span>
-            </div>
-            <div class="join_row">
-            <h3 class="join_title">
+          </div>
+          <div className="join_row">
+            <h3 className="join_title">
               <label for="passwordConfirm">비밀번호 확인</label>
             </h3>
-            <span class="ps_box int_pass_check">
+            <span className="ps_box int_pass_check">
               <input
                 type="password"
                 value={passwordConfirm}
@@ -106,11 +108,11 @@ function Join() {
               />
             </span>
           </div>
-          <div class="join_row">
-            <h3 class="join_title">
+          <div className="join_row">
+            <h3 className="join_title">
               <label for="realname">이름</label>
             </h3>
-            <span class="ps_box box_right_space">
+            <span className="ps_box box_right_space">
               <input
                 type="text"
                 value={realname}
@@ -118,11 +120,11 @@ function Join() {
               />
             </span>
           </div>
-          <div class="join_row">
-            <h3 class="join_title">
+          <div className="join_row">
+            <h3 className="join_title">
               <label for="email">이메일</label>
             </h3>
-            <span class="ps_box int_email box_right_space">
+            <span className="ps_box int_email box_right_space">
               <input
                 type="text"
                 value={email}
@@ -130,7 +132,9 @@ function Join() {
               />
             </span>
           </div>
-          <button type="submit" class="submitbtn">가입하기</button>
+          <button type="submit" className="submitbtn">
+            가입하기
+          </button>
         </div>
       </form>
     </div>

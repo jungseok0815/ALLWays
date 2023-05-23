@@ -12,6 +12,7 @@ const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-pa
 const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
 const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
 const favoriteRouter = require('./src/routes/FavoritesData/FavoritesData');
+const logoutRouter = require('./src/routes/logout');
 // const version = require('./src/routes/version');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
@@ -69,6 +70,7 @@ app.use(corsMiddleware);
 app.use(express.urlencoded({extended : false}));
 
 app.use('/api/login', loginRouter);
+app.use('/api/logout', logoutRouter);
 app.use('/api/join', joinRouter);
 app.use('/api/findId', findIdRouter);
 app.use('/api/findPassword', findPasswordRouter);
@@ -87,9 +89,10 @@ app.use('/api/changePassword', changePasswordRouter);
 
 app.use((req, res, next) => {
   const error = new Error (`${req.method} ${req.url} 라우터가 없습니다.`);
-  error.status = 404;
+  error.status = 404
   next(error);
 });
+
 
 app.use((err, req, res, next)=>{
   res.locals.message = err.message;

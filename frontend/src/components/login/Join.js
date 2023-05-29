@@ -63,12 +63,22 @@ function Join() {
       });
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(event);
+    }
+  };
+
   return (
     <div className="outer2">
       <form onSubmit={handleSubmit}>
         <div className="joinbox">
           <h1 id="join">회원가입</h1>
-          <button onClick={() => navigate("/")} className="loginbtn2">
+          <button
+            type="button"
+            onClick={() => navigate("/LoginForm")}
+            className="loginbtn2">
             로그인 페이지로 이동
           </button>
           <hr />
@@ -132,7 +142,7 @@ function Join() {
               />
             </span>
           </div>
-          <button type="submit" className="submitbtn">
+          <button type="submit" id="submitBtn" className="submitbtn">
             가입하기
           </button>
         </div>

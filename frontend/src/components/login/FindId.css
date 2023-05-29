@@ -1,29 +1,28 @@
 .findidbox {
   background-color: white;
   width: 480px;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 20px;
-  padding: 20px;
-  box-sizing: content-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow-y: auto;
-  margin-top: 50px;
 }
 
 .h {
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.findidh1 {
+  font-size: 28px;
+  letter-spacing: 3px;
 }
 
 .findidbox .row {
   display: flex;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .findidbox .row input {
@@ -34,16 +33,17 @@
 
 .findidbox .row label {
   flex-basis: 80px;
-  margin-right: 15px;
+  margin-right: 13px;
   margin-top: 10px;
+  font-weight: 500;
 }
 
 .findname {
-  letter-spacing: 10px;
+  letter-spacing: 13px;
 }
 
 .findemail {
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   padding-right: 5px;
 }
 
@@ -58,9 +58,9 @@
   height: 30px;
   border: none;
   border-radius: 5px;
-  background-color: rgba(051, 82, 143, 0.9);
+  background-color: rgba(051, 82, 143, 0.65);
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
   letter-spacing: 2px;
   margin-top: 20px;
@@ -80,7 +80,7 @@
   height: 40px;
   font-size: 16px;
   letter-spacing: 5px;
-  background-color: rgb(051, 82, 143);
+  background-color: rgba(051, 82, 143, 0.8);
   color: white;
   font-weight: bold;
   border-radius: 5px;

@@ -49,15 +49,21 @@ function FindId() {
       });
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
+
   return (
-    <div className="outer3">
+    <div className="outer">
     <form onSubmit={handleSubmit}>
       <div className="findidbox">
       <div className="h">
-        <h1>아이디 찾기</h1>
+        <h1 className="findidh1">아이디 찾기</h1>
         <div className="buttons2">
         <button onClick={() => navigate("/FindPassword")}>비밀번호 찾기</button>
-        <button onClick={() => navigate("/")}>로그인하기</button>
+        <button onClick={() => navigate("/Loginform")}>로그인하기</button>
         </div>
         <hr className="line" />
       </div>
@@ -68,6 +74,7 @@ function FindId() {
                 type="text"
                 value={realname}
                 onChange={(e) => setRealname(e.target.value)}
+                onKeyPress={handleKeyPress}
               />
       </div>
       <div className="row">
@@ -76,6 +83,7 @@ function FindId() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
               />
       </div>
       <button type="submit" className="findidbtn">아이디 찾기</button>

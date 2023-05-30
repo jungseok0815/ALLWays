@@ -1,34 +1,71 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainPage from "./components/MainPage";
-import LoginForm from "./components/login/LoginForm";
-import Welcome from "./components/Welcome";
-import Join from "./components/login/Join";
-import FindId from "./components/login/FindId";
-import FindPassword from "./components/login/FindPassword";
-import ResetPassword from "./components/reset/ResetPassword";
-import FavoriteForm from "./components/favorite/favorite";
-import LandingPage from './components/views/Landing/LandingPage';
-import MapContainer from './components/views/Landing/Sections/MapContainer';
-import MyPage from "./components/views/Landing/Sections/MyPage";
+import React, { useState } from 'react';
+import Logout from './Logout';
+import Menu from './Menu';
+import './App.css';
+import { Link } from 'react-router-dom';
+
+import bookmarkImg from "./bookmark.png";
+import unbookmarkImg from "./unbookmark.png";
 
 function App() {
+  const [글제목, set글제목] = useState(['스타벅스', '교촌치킨', '한세대학교']);
+  const [북마크, set북마크] = useState([true, true, true]); // 초기 북마크 상태
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // login page로 이동해야 함
+  function handleLogin() {
+    setIsLoggedIn(true);
+  }
+
+  // logout page (회원가입, 로그인 페이지로 이동해야 함)
+  function handleLogout() {
+    setIsLoggedIn(false);
+  }
+
+  function handleNavigate(path) {
+    console.log(`이동: ${path}`);
+  }
+
+  // 북마크 토글 함수
+  function toggleBookmark(index) {
+    const updated북마크 = [...북마크];
+    updated북마크[index] = !updated북마크[index];
+    set북마크(updated북마크);
+
+    if (!updated북마크[index]) {
+      const updated글제목 = [...글제목];
+      updated글제목.splice(index, 1);
+      set글제목(updated글제목);
+    }
+  }
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/loginform" element={<LoginForm />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/findid" element={<FindId />} />
-        <Route path="/findpassword" element={<FindPassword />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/join" element={<Join />} />
-        <Route path="/favorite" element={<FavoriteForm/>} />
-        <Route path="/LandingPage" element={<LandingPage/>}/>
-        <Route path="/MapContainer" element={<MapContainer/>}/>
-        <Route path="/MyPage" element={<MyPage/>}/>
-      </Routes>
-    </Router>
+    <div className="App-header">
+      <header>
+        <h1 style={{ margin: "0 auto" }}>MY PAGE</h1>
+        {isLoggedIn ? (
+          <Logout onLogout={handleLogout} />
+        ) : (
+          <button onClick={handleLogin}>로그인</button>
+        )}
+      </header>
+      {isLoggedIn && <Menu onNavigate={handleNavigate} />}
+      <main></main>
+      {글제목.map((title, index) => (
+        <div className="list" key={index}>
+          <h4>
+            {title}{' '}
+            <div className="bookmark">
+              <button onClick={() => toggleBookmark(index)}>
+                <img src={북마크[index] ? bookmarkImg : unbookmarkImg} alt="북마크" />
+              </button>
+            </div>
+          </h4>
+          <p>장소 설명 및 평점</p>
+        </div>
+      ))}
+    </div>
   );
 }
 

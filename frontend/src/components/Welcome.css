@@ -65,6 +65,12 @@
     color: #fff;
     font-size: 16px;
   }
+
+  .navbar-right .logout {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
   
   .navbar-right .mypage-link:hover {
     text-decoration: underline;

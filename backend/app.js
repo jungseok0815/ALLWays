@@ -17,32 +17,13 @@ const logoutRouter = require('./src/routes/logout');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const {sequelize, User} = require('./models');
-const session = require('express-session');
-const MySQLStore = require("express-mysql-session")(session);
-const env = process.env;
+const pageSession = require('./src/middleware/pageSession');
 
 
 const app = express();
 
 app.use(cors());
 
-const options = {
-  host: env.DATABASE_HOST,
-  user: env.DATABASE_USER,
-  port: env.DATABASE_PORT,
-  password: env.DATABASE_PASSWORD,
-  database: env.DATABASE_DATABASE,
-};
-
-
-app.use(
-  session({
-    secret: env.SESSION_SECRET,
-    store: new MySQLStore(options),
-    resave: false,
-    saveUninitialized: false,
-  })
-);
 app.set('port', process.env.PORT || 3001);
 
 // 'html' 확장자를 사용하는 파일을 렌더링하는 엔진 설정
@@ -68,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(corsMiddleware);
 app.use(express.urlencoded({extended : false}));
+app.use(pageSession);
 
 app.use('/api/login', loginRouter);
 app.use('/api/logout', logoutRouter);

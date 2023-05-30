@@ -1,6 +1,5 @@
 import React from "react";
-
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import "./MainPage.css";
 import welcomeImage from '../welcome.jpg';
 

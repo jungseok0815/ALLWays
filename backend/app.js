@@ -28,7 +28,7 @@ const options = {
   user: "root",
   port: 3306,
   password: "9401",
-  database: "mapproject",
+  database: "pr_2",
 };
 
 
@@ -73,7 +73,7 @@ app.use('/api/sendEmail-id', sendEmail_IdRouter);
 app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
 app.use('/api/checkResetCode', checkCodeRouter);
 
-app.use('/api/favorite',favoriteRouter)
+app.use('/api/favorite',favoriteRouter);
 
 app.use('/api/changePassword', changePasswordRouter);
 

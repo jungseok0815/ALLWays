@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function FavoriteForm() {
-  const [userId, setUserId] = useState('');
-  const [favorite, setFavorite] = useState('');
+  const [id, setid] = useState('');
+  const [favorites, setfavorites] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/api/favorite', { userId, favorite });
+      const response = await axios.post('http://localhost:8080/api/favorite', { id, favorites });
       console.log(response.data);
     } catch (error) {
       console.error('Error posting favorite:', error);
@@ -22,16 +22,16 @@ function FavoriteForm() {
         User ID:
         <input
           type="text"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
+          value={id}
+          onChange={(e) => setid(e.target.value)}
         />
       </label>
       <label>
         Favorite:
         <input
           type="text"
-          value={favorite}
-          onChange={(e) => setFavorite(e.target.value)}
+          value={favorites}
+          onChange={(e) => setfavorites(e.target.value)}
         />
       </label>
       <button type="submit">저장하기</button>

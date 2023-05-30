@@ -8,7 +8,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -26,7 +26,7 @@ function LoginForm() {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
+       console.log(response.data);
         navigate(location.state?.from || "/welcome", {
           state: { isLoggedIn: true },
         });

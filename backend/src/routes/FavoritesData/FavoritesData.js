@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { Favorites } = require('../../../models/favorites');
+const { Favorites } = require('../../../models');
 
 
 router.post('/', async (req, res) => {
   const { id, favorites  } = req.body;
-  console.log("hi");
+  
 
   try {
-    const existFavorites = await User.findOne({ where: { Favorites } });
+    const existFavorites = await Favorites.findOne({ where: { favorites} });
     if (existFavorites) {
       return res.status(409).send({ message: '이미 즐겨찾기에 추가된 항목입니다..' });
     }

@@ -74,56 +74,68 @@ function FindPassword() {
       .catch((error) => {
         alert(error.response.data.message);
         console.log(error);
+        console.log(resetCode);
       });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       <div>
-        <h1>Findpassword Page</h1>
-        <button onClick={() => navigate("/")}>로그인하기</button>
-        <hr />
+        <form onSubmit={handleSubmit}>
+          <div>
+            <h1>Findpassword Page</h1>
+            <button onClick={() => navigate("/")}>로그인하기</button>
+            <hr />
+          </div>
+          <label>
+            아이디:
+            <input
+              type="text"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+            />
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label>
+            이름:
+            <input
+              type="text"
+              value={realname}
+              onChange={(e) => setRealname(e.target.value)}
+            />
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label>
+            이메일:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit">비밀번호 찾기</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <br />
+        </form>
       </div>
-      <label>
-        아이디:
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label>
-        이름:
-        <input
-          type="text"
-          value={realname}
-          onChange={(e) => setRealname(e.target.value)}
-        />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label>
-        이메일:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="submit">비밀번호 찾기</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <form onSubmit={handleVerifyCode}>
-        <label>
-          인증코드:
-          <input
-            type="text"
-            value={resetCode}
-            onChange={(e) => setResetode(e.target.value)}
-          />
-        </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit">인증</button>
-      </form>
-      <br />
-      <div id="message2"></div>
-    </form>
+      <div>
+        <form onSubmit={handleVerifyCode}>
+          <label>
+            인증코드:
+            <input
+              type="text"
+              value={resetCode}
+              onChange={(e) => setResetode(e.target.value)}
+            />
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit">인증</button>
+          <br/>
+          <div id="message2"></div>
+        </form>
+      </div>
+    </div>
   );
 }
 

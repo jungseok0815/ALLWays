@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+import "./LoginForm.css";
 
 function LoginForm() {
   const [id, setId] = useState("");
@@ -20,53 +21,57 @@ function LoginForm() {
     }
 
     axios
-      .post("http://localhost:8080/api/login", {  
+      .post("http://localhost:8080/api/login", {
         id: id,
-        password: password,
+        password: password, 
       })
       .then((response) => {
-        console.log(response.data);
-        navigate(location.state?.from || "/welcome", { state: {isLoggedIn: true}});
+        navigate(location.state?.from || "/welcome", {
+          state: { isLoggedIn: true },
+        });
       })
-      .catch((error) => { 
+      .catch((error) => {
         alert(error.response.data.message);
         console.log(error);
       });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        아이디:
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label>
-        비밀번호:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      <button type="submit">Submit</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={() => navigate("/join")}>
-        회원가입
-      </button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={() => navigate("/FindId")}>
-        아이디 찾기
-      </button>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={() => navigate("/FindPassword")}>
-        비밀번호 찾기
-      </button>
-    </form>
+    <div className="outer">
+      <div className="box2">
+        <form onSubmit={handleSubmit}>
+          <p id="loginp">로그인</p>
+          <div className="loginspacing1"></div>
+          <div className="input-container">
+          <input
+            type="text"
+            value={id}
+            placeholder="아이디"
+            onChange={(e) => setId(e.target.value)}
+          />
+          <div className="loginspacing"></div>
+          <input
+            type="password"
+            value={password}
+            placeholder="비밀번호"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          </div>
+          <div className="loginspacing2"></div>
+          <p>
+            <button type="submit" className="loginbtn">로그인</button>
+          </p>
+          <div className="loginspacing3"></div>
+          <div className="idpw">
+            <button onClick={() => navigate("/join")}>회원가입</button>
+            <button onClick={() => navigate("/FindId")}>아이디 찾기</button>
+            <button onClick={() => navigate("/FindPassword")}>
+              비밀번호 찾기
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ function MainPage() {
       <div className="box">
         <div className="content-container">
           <img src={welcomeImage} alt="Welcome" className="welcome-image" />
-          <p>어서오세요 !</p>
+          <p className="mainp">어서오세요 !</p>
           <div className="buttons">
             <button onClick={() => navigate("/loginform")}>로그인</button>
             <button onClick={() => navigate("/join")}>회원가입</button>

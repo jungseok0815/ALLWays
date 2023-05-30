@@ -8,6 +8,8 @@ import FindId from "./components/login/FindId";
 import FindPassword from "./components/login/FindPassword";
 import ResetPassword from "./components/reset/ResetPassword";
 import FavoriteForm from "./components/favorite/favorite";
+import LandingPage from './components/views/Landing/LandingPage';
+import MapContainer from './components/views/Landing/Sections/MapContainer';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/ResetPassword" element={<ResetPassword />} />
         <Route path="/join" element={<Join />} />
         <Route path="/favorite" element={<FavoriteForm/>} />
+        <Route path="/LandingPage" element={<LandingPage/>}/>
+        <Route path="/MapContainer" element={<MapContainer/>}/>
       </Routes>
     </Router>
   );

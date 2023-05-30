@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { useNavigate} from "react-router-dom";
 import "./MainPage.css";
 import welcomeImage from '../welcome.jpg';
 

@@ -23,6 +23,7 @@ router.post('/', async (req, res, next) => {
     req.session.User = user;
     req.session.save(function () {
     res.send(true);
+    console.log(req.session);
     });
   } catch (error) {
     res.status(500).send({ message: '서버 오류가 발생했습니다.' });

@@ -55,7 +55,7 @@ function Join() {
       .then((response) => {
         alert(response.data.message);
         console.log(response.data);
-        navigate("/");
+        navigate("/LoginForm");
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -71,9 +71,9 @@ function Join() {
   };
 
   return (
-    <div className="outer2">
-      <form onSubmit={handleSubmit}>
+    <div className="outer">
         <div className="joinbox">
+      <form onSubmit={handleSubmit}>
           <h1 id="join">회원가입</h1>
           <button
             type="button"
@@ -81,7 +81,7 @@ function Join() {
             className="loginbtn2">
             로그인 페이지로 이동
           </button>
-          <hr />
+          <hr className="line3" />
           <div className="join_row">
             <h3 className="join_title">
               <label for="id">아이디</label>
@@ -145,8 +145,8 @@ function Join() {
           <button type="submit" id="submitBtn" className="submitbtn">
             가입하기
           </button>
-        </div>
       </form>
+        </div>
     </div>
   );
 }

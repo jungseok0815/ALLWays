@@ -23,10 +23,10 @@ function LoginForm() {
     axios
       .post("http://localhost:8080/api/login", {
         id: id,
-        password: password,
+        password: password, 
       })
       .then((response) => {
-       console.log(response.data);
+        console.log(response.data);
         navigate(location.state?.from || "/welcome", {
           state: { isLoggedIn: true },
         });

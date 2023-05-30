@@ -38,10 +38,9 @@ router.post('/', async (req, res, next) => {
     req.session.save(function () {
      res.send(combinedFavorites)
     });
-
-    
+   
   } catch (error) {
-    console.error(error);
+    console.error("오류가 발생했습니다.");
   }
 });
 

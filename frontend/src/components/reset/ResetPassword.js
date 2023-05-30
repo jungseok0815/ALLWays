@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ function ResetPassword() {
     }
 
     if (password !== confirmPassword) {
-      alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+      alert('비밀번호와 비밀번호 확인 값이 일치하지 않습니다. 정확하게 입력해주세요.');
       return;
     }
 

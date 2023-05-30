@@ -56,7 +56,7 @@ function Join() {
       .then((response) => {
         alert(response.data.message);
         console.log(response.data);
-        navigate("/loginform");
+        navigate("/LoginForm");
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -66,62 +66,83 @@ function Join() {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h1>Signup Page</h1>
-        <button onClick={() => navigate("/")}>
-        로그인 페이지로 이동
-        </button>
-        <hr />
-
-        <label>
-          아이디:
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          비밀번호:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          비밀번호 확인:
-          <input
-            type="password"
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          이름:
-          <input
-            type="text"
-            value={realname}
-            onChange={(e) => setRealname(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          이메일:
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div className="outer">
+        <div className="joinbox">
+      <form onSubmit={handleSubmit}>
+          <h1 id="join">회원가입</h1>
+          <button
+            type="button"
+            onClick={() => navigate("/LoginForm")}
+            className="loginbtn2">
+            로그인 페이지로 이동
+          </button>
+          <hr className="line3" />
+          <div className="join_row">
+            <h3 className="join_title">
+              <label for="id">아이디</label>
+            </h3>
+            <span className="ps_box int_id">
+              <input
+                type="text"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
+            </span>
+          </div>
+          <div className="join_row">
+            <h3 className="join_title">
+              <label for="password">비밀번호</label>
+            </h3>
+            <span className="ps_box int_pass">
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </span>
+          </div>
+          <div className="join_row">
+            <h3 className="join_title">
+              <label for="passwordConfirm">비밀번호 확인</label>
+            </h3>
+            <span className="ps_box int_pass_check">
+              <input
+                type="password"
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+              />
+            </span>
+          </div>
+          <div className="join_row">
+            <h3 className="join_title">
+              <label for="realname">이름</label>
+            </h3>
+            <span className="ps_box box_right_space">
+              <input
+                type="text"
+                value={realname}
+                onChange={(e) => setRealname(e.target.value)}
+              />
+            </span>
+          </div>
+          <div className="join_row">
+            <h3 className="join_title">
+              <label for="email">이메일</label>
+            </h3>
+            <span className="ps_box int_email box_right_space">
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </span>
+          </div>
+          <button type="submit" id="submitBtn" className="submitbtn">
+            가입하기
+          </button>
+      </form>
+        </div>
+    </div>
   );
 }
 

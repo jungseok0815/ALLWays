@@ -1,27 +1,21 @@
 #join {
-  font-size: 35px;
-  letter-spacing: 16px;
+  font-size: 28px;
+  letter-spacing: 9px;
   text-align: center;
-  margin-left: 19px;
+  margin-top: 5px;
+  margin-left: 10px;
 }
+
 .joinbox {
   background-color: white;
   width: 480px;
-  height: 700px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 20px;
-  padding: 20px;
-  box-sizing: content-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow-y: auto;
-  margin-top: 90px;
 }
 
 .loginbtn2 {
@@ -29,11 +23,23 @@
   border: none;
   color: white;
   width: 160px;
+}
+
+.loginbtn2 {
+  margin-top: -5px;
+  background-color: rgba(051, 82, 143, 0.65);
+  border: none;
+  color: white;
+  width: 155px;
   height: 28px;
   font-size: 13px;
   border-radius: 5px;
   letter-spacing: 1px;
-  margin-top: 5px;
+}
+
+.line3 {
+  margin-top: 20px;
+  width: 300px;
 }
 
 .join_title {
@@ -42,33 +48,35 @@
   display: block;
   width: 300px;
   padding-left: 5px;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
 }
 
 .join_row {
   align-items: center;
-  flex-wrap: wrap; /* Wrap the items onto multiple lines */
+  display: block;
 }
 
 .ps_box input {
-  width: 100%;
+  width: 300px;
   box-sizing: border-box;
-  margin-top: -3px;
-  margin-bottom: 5px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  display: block;
 }
 
 .submitbtn {
-  margin-top: 40px;
-  background-color: rgb(51, 82, 143);
+  margin-top: 35px;
+  background-color: rgba(51, 82, 143, 0.9);
   border: none;
-  display: block;
-  width: 300px;
-  padding: 15px 0;
-  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  width: 265px;
+  height: 40px;
+  font-size: 16px;
   font-weight: 100;
   text-align: center;
-  box-sizing: border-box;
   color: white;
   border-radius: 5px;
   letter-spacing: 3px;

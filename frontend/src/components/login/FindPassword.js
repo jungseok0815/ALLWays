@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./FindPassword.css";
 
 function FindPassword() {
   const [id, setId] = useState("");
@@ -78,62 +79,82 @@ function FindPassword() {
       });
   };
 
+  const handleEmailKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
+
+  const handleCodeKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleVerifyCode(event);
+    }
+  };
+
   return (
-    <div>
-      <div>
+    <div className="outer">
+      <div className="findpwdbox">
         <form onSubmit={handleSubmit}>
-          <div>
-            <h1>Findpassword Page</h1>
-            <button onClick={() => navigate("/")}>로그인하기</button>
-            <hr />
+          <div className="pwdbox">
+            <h1 className="findpwd1">비밀번호 찾기</h1>
+            <button
+              className="loginbtn3"
+              onClick={() => navigate("/Loginform")}
+            >
+              로그인하기
+            </button>
+            <hr className="line2" />
           </div>
-          <label>
-            아이디:
+
+          <div className="row2">
+            <label className="pwdid">아이디</label>
             <input
+              className="id1"
               type="text"
               value={id}
               onChange={(e) => setId(e.target.value)}
             />
-          </label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label>
-            이름:
+          </div>
+          <div className="row2">
+            <label className="pwdname">이름</label>
             <input
+              className="name1"
               type="text"
               value={realname}
               onChange={(e) => setRealname(e.target.value)}
             />
-          </label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <label>
-            이메일:
+          </div>
+          <div className="row2">
+            <label className="pwdemail">이메일</label>
             <input
+              className="email1"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyPress={handleEmailKeyPress}
             />
-          </label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="submit">비밀번호 찾기</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <br />
+          </div>
+          <button type="submit" className="findpwdbtn">
+            인증코드 받기
+          </button>
         </form>
-      </div>
-      <div>
-        <form onSubmit={handleVerifyCode}>
-          <label>
-            인증코드:
+        <div className="row2">
+          <form onSubmit={handleVerifyCode}>
+            <label className="pwdauth">인증코드</label>
             <input
+              className="auth1"
               type="text"
               value={resetCode}
               onChange={(e) => setResetode(e.target.value)}
+              onKeyPress={handleCodeKeyPress}
             />
-          </label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="submit">인증</button>
-          <br/>
-          <div id="message2"></div>
-        </form>
+
+            <button type="submit" className="authbtn">
+              인증
+            </button>
+            <div id="message2"></div>
+          </form>
+        </div>
       </div>
     </div>
   );

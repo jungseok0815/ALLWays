@@ -92,69 +92,61 @@ function FindPassword() {
   };
 
   return (
-    <div className="outer">
-      <div className="findpwdbox">
+    <div>
+      <div>
         <form onSubmit={handleSubmit}>
-          <div className="pwdbox">
-            <h1 className="findpwd1">비밀번호 찾기</h1>
-            <button
-              className="loginbtn3"
-              onClick={() => navigate("/Loginform")}
-            >
-              로그인하기
-            </button>
-            <hr className="line2" />
+          <div>
+            <h1>Findpassword Page</h1>
+            <button onClick={() => navigate("/")}>로그인하기</button>
+            <hr />
           </div>
-
-          <div className="row2">
-            <label className="pwdid">아이디</label>
+          <label>
+            아이디:
             <input
-              className="id1"
               type="text"
               value={id}
               onChange={(e) => setId(e.target.value)}
             />
-          </div>
-          <div className="row2">
-            <label className="pwdname">이름</label>
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label>
+            이름:
             <input
-              className="name1"
               type="text"
               value={realname}
               onChange={(e) => setRealname(e.target.value)}
             />
-          </div>
-          <div className="row2">
-            <label className="pwdemail">이메일</label>
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label>
+            이메일:
             <input
-              className="email1"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              onKeyPress={handleEmailKeyPress}
             />
-          </div>
-          <button type="submit" className="findpwdbtn">
-            인증코드 받기
-          </button>
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit">비밀번호 찾기</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <br />
         </form>
-        <div className="row2">
-          <form onSubmit={handleVerifyCode}>
-            <label className="pwdauth">인증코드</label>
+      </div>
+      <div>
+        <form onSubmit={handleVerifyCode}>
+          <label>
+            인증코드:
             <input
-              className="auth1"
               type="text"
               value={resetCode}
               onChange={(e) => setResetode(e.target.value)}
-              onKeyPress={handleCodeKeyPress}
             />
-
-            <button type="submit" className="authbtn">
-              인증
-            </button>
-            <div id="message2"></div>
-          </form>
-        </div>
+          </label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit">인증</button>
+          <br/>
+          <div id="message2"></div>
+        </form>
       </div>
     </div>
   );

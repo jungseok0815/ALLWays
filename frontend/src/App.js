@@ -7,7 +7,6 @@ import Join from "./components/login/Join";
 import FindId from "./components/login/FindId";
 import FindPassword from "./components/login/FindPassword";
 import ResetPassword from "./components/reset/ResetPassword";
-import FavoriteForm from "./components/favorite/favorite";
 
 function App() {
   return (
@@ -20,7 +19,9 @@ function App() {
         <Route path="/findpassword" element={<FindPassword />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/favorite" element={<FavoriteForm/>} />
+      </Routes>
+      <Routes>
+        <Route path="/ResetPassword/:resetToken" element={<ResetPassword />} />
       </Routes>
     </Router>
   );

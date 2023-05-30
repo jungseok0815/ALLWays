@@ -1,13 +1,12 @@
 #loginp {
   font-size: 28px;
   letter-spacing: 7px;
-  font-weight: bold;
 }
 
 .box2 {
   background-color: white;
   width: 480px;
-  min-height: 600px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center; /* 가로 가운데 정렬 */

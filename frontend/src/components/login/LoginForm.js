@@ -27,9 +27,7 @@ function LoginForm() {
       })
       .then((response) => {
         console.log(response.data);
-        navigate(location.state?.from || "/welcome", {
-          state: { isLoggedIn: true },
-        });
+        navigate(location.state?.from || "/welcome", { state: {isLoggedIn: true}});
       })
       .catch((error) => {
         alert(error.response.data.message);

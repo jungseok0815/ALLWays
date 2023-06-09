@@ -6,7 +6,6 @@ import { useRecoilState } from 'recoil';
 import { userIdState } from "../../state/atom";
 
 
-
 function LoginForm({onResponseData}) {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");

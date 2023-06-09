@@ -1,12 +1,14 @@
 body {
   background-color: #6699cc;
+  margin: 0;
+  padding: 0;
 }
 
 .outer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .box {
@@ -32,7 +34,7 @@ body {
   border-radius: 50px;
 }
 
-.mainp {
+p {
   text-align: center;
   font-weight: bold;
 }
@@ -40,7 +42,22 @@ body {
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+}
+
+.buttons button {
+  width: 180px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(051, 82, 143);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 9px;
+}
+
+button + button {
+  margin-left: 15px;
 }
 
 .buttons button {

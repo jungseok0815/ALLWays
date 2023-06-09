@@ -57,6 +57,7 @@ function Join() {
         alert(response.data.message);
         console.log(response.data);
         navigate("/loginform");
+
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -64,12 +65,6 @@ function Join() {
       });
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      handleSubmit(event);
-    }
-  };
 
   return (
     <div className="outer">

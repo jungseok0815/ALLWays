@@ -28,7 +28,7 @@ function Welcome() {
 
   const handleGoToMyPage = (event) => {
     event.preventDefault();
-    setCurrentPage("mypage");
+    navigate("/mypage");
   };
 
   const handleGoToHomePage = () => {
@@ -141,6 +141,7 @@ function Welcome() {
 }
 
 export default Welcome;
+
 
 
 // import React, { useState, useEffect } from "react";

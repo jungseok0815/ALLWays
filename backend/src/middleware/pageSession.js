@@ -4,7 +4,7 @@ const env = process.env;
 
 const options = {
   host: env.DATABASE_HOST,
-  user: env.DATABASE_USER,
+  user: env.DATABASE_USERNAME,
   port: env.DATABASE_PORT,
   password: env.DATABASE_PASSWORD,
   database: env.DATABASE_DATABASE,

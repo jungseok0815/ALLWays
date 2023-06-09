@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./LoginForm.css";
+import { useRecoilState } from 'recoil';
+import { userIdState } from "../../state/atom";
 
-function LoginForm() {
+
+
+function LoginForm({onResponseData}) {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const [userId, setUserId] = useRecoilState(userIdState);
+  
   
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    
     if (!id) {
       alert("아이디를 입력해주세요!");
       return;
@@ -30,6 +36,11 @@ function LoginForm() {
           state: { isLoggedIn: true },
         });
         console.log(response.data);
+        
+        setUserId(response.data);
+        
+      
+        
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -37,19 +48,24 @@ function LoginForm() {
       });
   };
 
+  
+
   return (
+    
     <div className="outer">
       <div className="box2">
         <form onSubmit={handleSubmit}>
           <p id="loginp">로그인</p>
           <div className="loginspacing1"></div>
           <div className="input-container">
+     
           <input
             type="text"
             value={id}
             placeholder="아이디"
             onChange={(e) => setId(e.target.value)}
           />
+         
           <div className="loginspacing"></div>
           <input
             type="password"
@@ -73,6 +89,7 @@ function LoginForm() {
         </form>
       </div>
     </div>
+   
   );
 }
 

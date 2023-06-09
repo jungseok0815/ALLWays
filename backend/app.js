@@ -11,13 +11,16 @@ const sendEmail_IdRouter = require('./src/routes/findid/sendEmail-id');
 const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-password');
 const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
 const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
-const favoriteRouter = require('./src/routes/FavoritesData/FavoritesData');
+const bookMarRouter = require('./src/routes/bookMarkData');
 const logoutRouter = require('./src/routes/logout');
+const pageSession = require("./src/middleware/pageSession");
+const userinfo = require("./src/routes/userInfo");
 // const version = require('./src/routes/version');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const {sequelize, User} = require('./models');
-const pageSession = require('./src/middleware/pageSession');
+const { userInfo } = require('os');
+
 
 
 const app = express();
@@ -60,7 +63,8 @@ app.use('/api/sendEmail-id', sendEmail_IdRouter);
 app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
 app.use('/api/checkResetCode', checkCodeRouter);
 
-app.use('/api/favorite',favoriteRouter);
+app.use('/api/bookMarks',bookMarRouter);
+app.use('/api/userinfo', userinfo);
 
 app.use('/api/changePassword', changePasswordRouter);
 

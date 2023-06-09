@@ -1,21 +1,48 @@
 /* eslint-disable  */ 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MapContainer.css';
+import axios from "axios";
+import  "../../../login/LoginForm";
+import { useRecoilState } from 'recoil';
+import { userIdState } from '../../../../state/atom';
+
 
 const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
   const kakao = window.kakao;
   const [Places, setPlaces] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const mapRef = useRef(null);
+  const responseDataRef = useRef(null);
+  const [userId, setUserId] = useRecoilState(userIdState);
+ 
+ 
 
   const navigate = useNavigate();
   
-  const handleBookmark = (item) => {
+  const handleBookmark = (item,responseData) => {
     const confirmation = window.confirm('즐겨찾기에 추가하시겠습니까?');
+    console.log(userId);
+    const userid = {userid:userId};
+    console.log(userid);
+
+    responseDataRef.current = responseData;
     if (confirmation) {
+      
       const updatedBookmarks = [...bookmarks, item];
       setBookmarks(updatedBookmarks);
+      const mapData = {...item, ...userid};
+      console.log(mapData);
+
+        // POST 요청을 보내고 엔드포인트에 updatedBookmarks를 전달
+      axios.post('http://localhost:8080/api/bookMarks',mapData )
+      .then(response => {
+       console.log('Bookmarks saved successfully');
+      })
+      .catch(error => {
+        console.error('Error saving bookmarks:', error);
+      });
+
       localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
     }
   };
@@ -26,6 +53,7 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
       setUserBookmarks(storedBookmarks);
     }
   }, []);
+  
   
 
   useEffect(() => {
@@ -124,7 +152,11 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
       <div className="pagination-container">
         <div className="pagination" id="pagination"></div>
       </div>
+      <div>
+      
     </div>
+    </div>
+    
   );
   
           };

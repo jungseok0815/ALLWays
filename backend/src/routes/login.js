@@ -2,8 +2,10 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 
-const { User, Favorites } = require('../../models');
-const favorites = require('../../models/favorites');
+
+
+const { User,bookMark } = require('../../models');
+
 
 
 router.post('/', async (req, res, next) => {
@@ -22,26 +24,17 @@ router.post('/', async (req, res, next) => {
     if (!isMatch) {
       return res.status(401).json({ message: '아이디 또는 비밀번호를 잘못 입력했습니다. \n입력하신 내용을 다시 확인해주세요.' });
     }
-    const userFa = await Favorites.findAll({
-      where: {
-        id: user.id,
-      },
-    });
-    
-    const combinedFavorites = userFa.map((Favorites) => {
-      return Favorites.dataValues.favorites;
-    });
-    
-    console.log(combinedFavorites);
-    
     req.session.User = user;
     req.session.save(function () {
-     res.send(combinedFavorites)
+     res.send(user.id);
     });
+
+  
    
   } catch (error) {
     console.error("오류가 발생했습니다.");
   }
 });
+
 
 module.exports = router;

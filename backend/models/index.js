@@ -8,12 +8,14 @@ const sequelize = new Sequelize(config.development.database, config.development.
 
 const db = {};
 db.sequelize = sequelize;
+db.bookMark = sequelize;
+db.User = sequelize;
 
 db.User = require('./user')(sequelize, Sequelize);
-db.Favorites = require('./favorites')(sequelize, Sequelize);
+db.bookMark = require('./bookMark')(sequelize, Sequelize);
 //테이블관의 관계 정의
- db.User.hasMany(db.Favorites, { foreignKey: 'id', sourceKey:"id" });
- db.Favorites.belongsTo(db.User, { foreignKey: 'id', targetKey:"id" });
+ db.User.hasMany(db.bookMark, { foreignKey: 'userid', sourceKey:"id" });
+ db.bookMark.belongsTo(db.User, { foreignKey: 'userid', targetKey:"id" });
 
 sequelize.sync();
 

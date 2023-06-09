@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./ResetPassword.css";
 
 function ResetPassword() {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,14 +14,13 @@ function ResetPassword() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
     if (!password || !confirmPassword) {
-      alert('비밀번호와 비밀번호 확인란을 모두 입력해주세요.');
+      alert("비밀번호와 비밀번호 확인란을 모두 입력해주세요.");
       return;
     }
 
     if (password !== confirmPassword) {
-      alert('비밀번호와 비밀번호 확인 값이 일치하지 않습니다. 정확하게 입력해주세요.');
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       return;
     }
 
@@ -39,33 +39,33 @@ function ResetPassword() {
       });
   };
 
-
   return (
-    <div>
-      <h1>비밀번호 초기화</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            새로운 비밀번호:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            비밀번호 확인:
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </label>
-        </div>
-        <button type="submit">비밀번호 초기화</button>
-      </form>
+    <div className="outer">
+      <div className="rpwdbox">
+        <h1 className="rpwdh">비밀번호 초기화</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="rrow">
+            <label className="rpwdnew">새로운 비밀번호:</label>
+              <input
+                className="new"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+          </div>
+
+          <div className="rrow">
+            <label className="rpwdcheck">비밀번호 확인:</label>
+              <input
+                className="check"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+          </div>
+          <button type="submit" className="rpwdbtn">비밀번호 초기화</button>
+        </form>
+      </div>
     </div>
   );
 }

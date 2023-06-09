@@ -1,21 +1,48 @@
-/* eslint-disable  */ 
-import React, { useEffect, useState, useRef } from 'react';
+/* eslint-disable  */
+import React, { useEffect, useState, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MapContainer.css';
+import axios from "axios";
+import  "../../../login/LoginForm";
+import { useRecoilState } from 'recoil';
+import { userIdState } from '../../../../state/atom';
+
 
 const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
   const kakao = window.kakao;
   const [Places, setPlaces] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const mapRef = useRef(null);
+  const responseDataRef = useRef(null);
+  const [userId, setUserId] = useRecoilState(userIdState);
+ 
+ 
 
   const navigate = useNavigate();
   
-  const handleBookmark = (item) => {
+  const handleBookmark = (item,responseData) => {
     const confirmation = window.confirm('즐겨찾기에 추가하시겠습니까?');
+    console.log(userId);
+    const userid = {userid:userId};
+    console.log(userid);
+
+    responseDataRef.current = responseData;
     if (confirmation) {
+      
       const updatedBookmarks = [...bookmarks, item];
       setBookmarks(updatedBookmarks);
+      const mapData = {...item, ...userid};
+      console.log(mapData);
+
+        // POST 요청을 보내고 엔드포인트에 updatedBookmarks를 전달
+      axios.post('http://localhost:8080/api/bookMarks',mapData )
+      .then(response => {
+       console.log('Bookmarks saved successfully');
+      })
+      .catch(error => {
+        console.error('Error saving bookmarks:', error);
+      });
+
       localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
     }
   };
@@ -26,6 +53,7 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
       setUserBookmarks(storedBookmarks);
     }
   }, []);
+  
   
 
   useEffect(() => {
@@ -38,7 +66,7 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
     const map = new kakao.maps.Map(mapRef.current, options);
     const ps = new kakao.maps.services.Places();
 
-    function placesSearchCB(data, status, pagination) {
+    function placesSearchCB(data, status) {
       if (status === kakao.maps.services.Status.OK) {
         let bounds = new kakao.maps.LatLngBounds();
 
@@ -48,39 +76,10 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
         }
 
         map.setBounds(bounds);
-        displayPagination(pagination);
         setPlaces(data);
       }
     }
     
-
-    function displayPagination(pagination) {
-      const paginationEl = document.getElementById('pagination');
-      const fragment = document.createDocumentFragment();
-
-      while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild(paginationEl.lastChild);
-      }
-
-      for (let i = 1; i <= pagination.last; i++) {
-        const el = document.createElement('a');
-        el.href = '#';
-        el.innerHTML = i;
-
-        if (i === pagination.current) {
-          el.className = 'on';
-        } else {
-          el.onclick = (function (i) {
-            return function () {
-              pagination.gotoPage(i);
-            };
-          })(i);
-        }
-
-        fragment.appendChild(el);
-      }
-      paginationEl.appendChild(fragment);
-    }
 
     function displayMarker(place) {
       const marker = new kakao.maps.Marker({
@@ -102,30 +101,32 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
 
   return (
     <div className="map-container">
-      <div ref={mapRef} style={{ width: '60%', height: '500px' }}></div>
+      <div ref={mapRef} className='map'></div>
       <div className="result-container">
         {Places.map((item, i) => (
           <div key={i} className="search-result-item">
+            <div className='search-result-content'>
             <h5>{item.place_name}</h5>
             {item.road_address_name ? (
-              <div>
+              <div className='resultname'>
                 <span>{item.road_address_name}</span>
                 <span>{item.address_name}</span>
               </div>
             ) : (
               <span>{item.address_name}</span>
             )}
+            <div className='resultname'>
             <span>{item.phone}</span>
+            </div>
+            <div className='resultbtn'>
             <button onClick={() => handleBookmark(item)}>즐겨찾기</button>
+          </div>
+          </div>
           </div>
         ))}
       </div>
-  
-      <div className="pagination-container">
-        <div className="pagination" id="pagination"></div>
-      </div>
     </div>
   );
-  
-          };
- export default MapContainer;
+};
+
+export default MapContainer;

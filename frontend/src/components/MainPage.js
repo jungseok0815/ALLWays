@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { useNavigate} from "react-router-dom";
 import "./MainPage.css";
 import welcomeImage from '../welcome.jpg';
 
@@ -11,7 +10,7 @@ function MainPage() {
       <div className="box">
         <div className="content-container">
           <img src={welcomeImage} alt="Welcome" className="welcome-image" />
-          <p className="mainp">어서오세요 !</p>
+          <p>어서오세요 !</p>
           <div className="buttons">
             <button onClick={() => navigate("/loginform")}>로그인</button>
             <button onClick={() => navigate("/join")}>회원가입</button>

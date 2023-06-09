@@ -1,8 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 
-const MyPage = ({ bookmarks }) => {
-  
+const MyPage = ({ bookmarks, handleMoveToBookmark }) => {
   return (
     <div>
       <h3>즐겨찾기 목록:</h3>
@@ -20,6 +19,7 @@ const MyPage = ({ bookmarks }) => {
                 <span>{bookmark.address_name}</span>
               )}
               <span>{bookmark.phone}</span>
+              <button onClick={() => handleMoveToBookmark(bookmark)}>해당 지역으로 이동</button>
             </li>
           ))}
         </ul>

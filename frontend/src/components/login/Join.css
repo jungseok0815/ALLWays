@@ -1,3 +1,4 @@
+
 #join {
   font-size: 28px;
   letter-spacing: 9px;
@@ -16,13 +17,6 @@
   align-items: center;
   text-align: center;
   border-radius: 20px;
-}
-
-.loginbtn2 {
-  background-color: rgba(051, 82, 143, 0.8);
-  border: none;
-  color: white;
-  width: 160px;
 }
 
 .loginbtn2 {
@@ -82,3 +76,4 @@
   letter-spacing: 3px;
   font-weight: 700;
 }
+

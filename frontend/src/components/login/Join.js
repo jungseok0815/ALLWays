@@ -57,6 +57,7 @@ function Join() {
         alert(response.data.message);
         console.log(response.data);
         navigate("/loginform");
+
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -64,12 +65,6 @@ function Join() {
       });
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      handleSubmit(event);
-    }
-  };
 
   return (
     <div className="outer">
@@ -143,8 +138,10 @@ function Join() {
               />
             </span>
           </div>
-          <button type="submit" class="submitbtn">가입하기</button>
-          </form>
+          <button type="submit" id="submitBtn" className="submitbtn">
+            가입하기
+          </button>
+      </form>
         </div>
     </div>
   );

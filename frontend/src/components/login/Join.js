@@ -55,7 +55,7 @@ function Join() {
       .then((response) => {
         alert(response.data.message);
         console.log(response.data);
-        navigate("/LoginForm");
+        navigate("/loginform");
       })
       .catch((error) => {
         alert(error.response.data.message);

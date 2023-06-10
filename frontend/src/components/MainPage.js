@@ -1,10 +1,23 @@
 import React from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
-import welcomeImage from '../welcome.jpg';
+import welcomeImage from "../welcome.jpg";
+import { useRecoilState } from "recoil";
+import { userIdState } from "../state/atom";
 
 function MainPage() {
+  const [userId, setUserId] = useRecoilState(userIdState);
   const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (userId == null) {
+      navigate("/loginform");
+    } else {
+      navigate("/welcome");
+    }
+  };
   return (
     <div className="outer">
       <div className="box">
@@ -12,7 +25,9 @@ function MainPage() {
           <img src={welcomeImage} alt="Welcome" className="welcome-image" />
           <p>어서오세요 !</p>
           <div className="buttons">
-            <button onClick={() => navigate("/loginform")}>로그인</button>
+            <form onSubmit={handleSubmit}>
+              <button type="submit">로그인</button>
+            </form>
             <button onClick={() => navigate("/join")}>회원가입</button>
           </div>
         </div>

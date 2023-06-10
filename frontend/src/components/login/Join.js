@@ -14,7 +14,6 @@ function Join() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
 
     if (!id) {
       alert("아이디를 입력해주세요!");
@@ -57,7 +56,6 @@ function Join() {
         alert(response.data.message);
         console.log(response.data);
         navigate("/loginform");
-
       })
       .catch((error) => {
         alert(error.response.data.message);
@@ -65,16 +63,16 @@ function Join() {
       });
   };
 
-
   return (
     <div className="outer">
-        <div className="joinbox">
-      <form onSubmit={handleSubmit}>
+      <div className="joinbox">
+        <form onSubmit={handleSubmit}>
           <h1 id="join">회원가입</h1>
           <button
             type="button"
             onClick={() => navigate("/LoginForm")}
-            className="loginbtn2">
+            className="loginbtn2"
+          >
             로그인 페이지로 이동
           </button>
           <hr className="line3" />
@@ -141,8 +139,8 @@ function Join() {
           <button type="submit" id="submitBtn" className="submitbtn">
             가입하기
           </button>
-      </form>
-        </div>
+        </form>
+      </div>
     </div>
   );
 }

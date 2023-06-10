@@ -33,7 +33,7 @@ function FindPassword() {
       .then((response) => {
         const messageDiv = document.getElementById("message2");
         messageDiv.innerHTML = response.data.message;
-        // 이메일로 비밀번호 전송 요청 보내기
+
         axios
           .post("http://localhost:8080/api/sendEmail-password", {
             realname: realname,
@@ -144,7 +144,7 @@ function FindPassword() {
           </label>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="submit">인증</button>
-          <br/>
+          <br />
           <div id="message2"></div>
         </form>
       </div>

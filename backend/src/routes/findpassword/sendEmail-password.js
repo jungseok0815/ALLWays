@@ -2,7 +2,18 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../../../models");
 const mail = require("../../middleware/mail");
-const resetCodeModule = require("../../middleware/resetCode");
+const resetCodeModule = require('../../middleware/resetCode');
+const crypto = require('crypto');
+
+let resetCode;
+
+function createResetCode() {
+  resetCode = crypto.randomBytes(6).toString("hex");
+}
+
+createResetCode();
+
+setInterval(createResetCode, 10 * 60 * 1000);
 
 router.post("/", async (req, res) => {
   const { email, realname } = req.body;
@@ -18,12 +29,8 @@ router.post("/", async (req, res) => {
     const mailForm2 = {
       from: process.env.FROM_EMAIL,
       to: email,
-      subject:
-        "안녕하세요 ALLWAYS 입니다. 비밀번호 초기화 인증코드를 알려드립니다.",
-      html: `<p><h3>안녕하세요 ${realname}님,</h3></p><br>
-      <p>여러분들에게 언제나 행복과 재미를 전달하고 싶은 ALLWAYS 입니다.</p><br>
-      <p>인증코드는 <strong>${resetCodeModule}</strong> 입니다.</p><br>
-      <p>저희 사이트를 이용하면서 언제나 즐거운 시간만이 있기를 바랍니다:)</p></p>`,
+      subject: "안녕하세요. 비밀번호 초기화 인증 코드를 보내드립니다.",
+      html: `<p>안녕하세요 ${realname}님, <br>비밀번호 초기화 인증 코드는 다음과 같습니다: <strong>${resetCode}</strong></p>`,
     };
 
     const info = await mail.sendMail(mailForm2);
@@ -32,6 +39,53 @@ router.post("/", async (req, res) => {
       .json({ message: "비밀번호 초기화 인증코드가 이메일로 전송되었습니다." });
   } catch (error) {
     res.status(500).send({ message: "서버 오류가 발생했습니다." });
+  }
+});
+
+router.post("/check", async (req, res) => {
+  const { email, resetCode } = req.body;
+
+  if (resetCode !== global.resetCode) {
+    return res.status(400).json({ message: "잘못된 인증코드입니다." });
+  }
+
+  try {
+    const user = await User.findOne({
+      where: {
+        email,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: "존재하지 않는 이메일입니다." });
+    }
+
+    res.status(200).json({ message: "인증코드가 일치합니다." });
+  } catch (error) {
+    console.error("오류가 발생했습니다.");
+  }
+});
+router.post("/check", async (req, res) => {
+  const { email, resetCode } = req.body;
+
+  if (resetCode !== global.resetCode) {
+    return res.status(400).json({ message: "잘못된 인증코드입니다." });
+  }
+
+  try {
+    const user = await User.findOne({
+      where: {
+        email,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: "존재하지 않는 이메일입니다." });
+    }
+
+    res.status(200).json({ message: "인증코드가 일치합니다." });
+  } catch (error) {
+    console.error("오류가 발생했습니다.");
   }
 });
 

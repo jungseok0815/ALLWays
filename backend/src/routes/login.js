@@ -38,7 +38,8 @@ router.post("/", async (req, res, next) => {
       res.send(user.id);
     });
   } catch (error) {
-    console.error("오류가 발생했습니다.");
+    console.error(error);
+    return res.status(500).send({ message: '서버 오류로 로그인에 실패하였습니다.' });
   }
 });
 

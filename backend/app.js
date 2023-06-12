@@ -12,13 +12,14 @@ const sendEmail_IdRouter = require('./src/routes/findid/sendEmail-id');
 const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-password');
 const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
 const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
-const bookMarRouter = require('./src/routes/bookMarkData');
+const bookMarRouter = require('./src/routes/bookmarkdata/bookMarkData');
 const logoutRouter = require('./src/routes/logout');
 const pageSession = require("./src/middleware/pageSession");
-const userinfo = require("./src/routes/userInfo");
+const userinfo = require("./src/routes/bookmarkdata/userInfo");
 // const version = require('./src/routes/version');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
+const deletebookmark = require('./src/routes/bookmarkdata/delectbookmark')
 
 
 const sessionMiddleware = require('./src/middleware/pageSession');
@@ -67,6 +68,7 @@ app.use('/api/findPassword', findPasswordRouter);
 app.use('/api/sendEmail-id', sendEmail_IdRouter);
 app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
 app.use('/api/checkResetCode', checkCodeRouter);
+app.use('/api/deletebookmark',deletebookmark);
 
 
 app.use('/api/bookMarks',bookMarRouter);

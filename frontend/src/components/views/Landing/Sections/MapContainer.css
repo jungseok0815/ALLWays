@@ -1,7 +1,12 @@
+.mrcontainer {
+  width: 100%;
+  display: flex;
+}
+
 .map {
   margin-top: 30px;
   height: 600px;
-  width: 60%;
+  width: 70%;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -15,11 +20,12 @@
 
 .result-container {
   margin-top: 30px;
-  width: 27%;
+  width: 28%;
   height: 600px;
   overflow: auto;
   margin-left: 25px;
   padding-right: 12px;
+  margin-right: 100px;
 }
 
 .search-result-item {
@@ -32,7 +38,13 @@
   font-size: 15px;
   color: #333;
   background-color: #fff;
+  /*
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  */
 }
 
 .search-result-item h5 {

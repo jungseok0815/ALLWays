@@ -6,11 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<<<< Temporary merge branch 1
-  min-height: 100vh;
-=========
   height: 100vh;
->>>>>>>>> Temporary merge branch 2
 }
 
 .box {
@@ -36,11 +32,7 @@ body {
   border-radius: 50px;
 }
 
-<<<<<<<<< Temporary merge branch 1
-p {
-=========
 .mainp {
->>>>>>>>> Temporary merge branch 2
   text-align: center;
   font-weight: bold;
 }
@@ -48,10 +40,7 @@ p {
 .buttons {
   display: flex;
   justify-content: center;
-<<<<<<<<< Temporary merge branch 1
-=========
   gap: 15px;
->>>>>>>>> Temporary merge branch 2
 }
 
 .buttons button {
@@ -64,11 +53,4 @@ p {
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 9px;
-<<<<<<<<< Temporary merge branch 1
-}
-
-button + button {
-  margin-left: 15px;
-}
-=========
 }

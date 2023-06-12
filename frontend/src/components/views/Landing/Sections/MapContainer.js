@@ -66,7 +66,7 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
     const map = new kakao.maps.Map(mapRef.current, options);
     const ps = new kakao.maps.services.Places();
 
-    function placesSearchCB(data, status) {
+    function placesSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
         let bounds = new kakao.maps.LatLngBounds();
 
@@ -100,38 +100,34 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
 
 
   return (
+    <div className="mrcontainer">
     <div className="map-container">
-      <div ref={mapRef} className='map'></div>
+      <div ref={mapRef} className="map"></div>
       <div className="result-container">
         {Places.map((item, i) => (
           <div key={i} className="search-result-item">
-            <div className='search-result-content'>
-            <h5>{item.place_name}</h5>
-            {item.road_address_name ? (
-              <div className='resultname'>
-                <span>{item.road_address_name}</span>
+            <div className="search-result-content">
+              <h5>{item.place_name}</h5>
+              {item.road_address_name ? (
+                <div className="resultname">
+                  <span>{item.road_address_name}</span>
+                  <span>{item.address_name}</span>
+                </div>
+              ) : (
                 <span>{item.address_name}</span>
+              )}
+              <div className="resultname">
+                <span>{item.phone}</span>
               </div>
-            ) : (
-              <span>{item.address_name}</span>
-            )}
-            <div className='resultname'>
-            <span>{item.phone}</span>
+              <div className="resultbtn">
+                <button onClick={() => handleBookmark(item)}>즐겨찾기</button>
+              </div>
             </div>
-            <div className='resultbtn'>
-            <button onClick={() => handleBookmark(item)}>즐겨찾기</button>
-          </div>
-          </div>
           </div>
         ))}
       </div>
-  
-      <div className="pagination-container">
-        <div className="pagination" id="pagination"></div>
-      </div>
     </div>
-    
+    </div>
   );
 };
-
-export default MapContainer;
+ export default MapContainer;

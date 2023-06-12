@@ -7,7 +7,9 @@ import Join from "./components/login/Join";
 import FindId from "./components/login/FindId";
 import FindPassword from "./components/login/FindPassword";
 import ResetPassword from "./components/reset/ResetPassword";
-import MyPage from "./components/MyPage";
+
+import MyPage  from './components/mypage/MyPage';
+
 
 import LandingPage from "./components/views/Landing/LandingPage";
 import MapContainer from "./components/views/Landing/Sections/MapContainer";

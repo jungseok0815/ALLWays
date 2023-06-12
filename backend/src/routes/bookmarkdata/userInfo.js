@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {bookMark} = require("../../models");
+const {bookMark} = require("../../../models");
 
 router.get('/', async (req, res, next) => {
   const value = req.query.value;
-  console.log("//////////////////////////",value);
+  //console.log("//////////////////////////",value);
    
       const userFa = await bookMark.findAll({
         where: {

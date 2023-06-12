@@ -38,6 +38,7 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
       axios.post('http://localhost:8080/api/bookMarks',mapData )
       .then(response => {
        console.log('Bookmarks saved successfully');
+       alert("즐겨찾기가 추가 되었습니다.");
       })
       .catch(error => {
         console.error('Error saving bookmarks:', error);

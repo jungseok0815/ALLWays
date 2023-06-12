@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {bookMark} = require('../../models/index');
+const {bookMark} = require('../../../models/index');
 
 router.post('/', async (req, res) => {
   const {userid, place_name, place_url, address_name, phone, x, y} = req.body;

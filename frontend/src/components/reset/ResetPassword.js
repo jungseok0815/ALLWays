@@ -45,7 +45,10 @@ function ResetPassword() {
         <h1 className="rpwdh">비밀번호 초기화</h1>
         <form onSubmit={handleSubmit}>
           <div className="rrow">
-            <label className="rpwdnew">새로운 비밀번호:</label>
+            <h3 className="reset_title">
+              <label className="rpwdnew">새로운 비밀번호</label>
+            </h3>
+
             <input
               className="new"
               type="password"
@@ -55,7 +58,10 @@ function ResetPassword() {
           </div>
 
           <div className="rrow">
-            <label className="rpwdcheck">비밀번호 확인:</label>
+            <h3 className="reset_title">
+              <label className="rpwdcheck">비밀번호 확인</label>
+            </h3>
+
             <input
               className="check"
               type="password"

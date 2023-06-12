@@ -1,24 +1,25 @@
 const express = require("express");
 const cors = require("cors");
 const env = process.env;
-const path = require("path");
-const bodyParser = require("body-parser");
-const corsMiddleware = require("./src/middleware/cors");
-const loginRouter = require("./src/routes/login");
-const joinRouter = require("./src/routes/join");
-const findIdRouter = require("./src/routes/findid/findId");
-const findPasswordRouter = require("./src/routes/findpassword/findPassword");
-const sendEmail_IdRouter = require("./src/routes/findid/sendEmail-id");
-const sendEmail_PasswordRouter = require("./src/routes/findpassword/sendEmail-password");
-const checkCodeRouter = require("./src/routes/findpassword/resetcode/checkResetcode");
-const changePasswordRouter = require("./src/routes/findpassword/resetcode/changePassword");
-const bookMarRouter = require("./src/routes/bookMarkData");
-const logoutRouter = require("./src/routes/logout");
+const path = require('path');
+const bodyParser = require('body-parser');
+const corsMiddleware = require('./src/middleware/cors');
+const loginRouter = require('./src/routes/login');
+const joinRouter = require('./src/routes/join');
+const findIdRouter = require('./src/routes/findid/findId');
+const findPasswordRouter = require('./src/routes/findpassword/findPassword');
+const sendEmail_IdRouter = require('./src/routes/findid/sendEmail-id');
+const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-password');
+const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
+const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
+const bookMarRouter = require('./src/routes/bookmarkdata/bookMarkData');
+const logoutRouter = require('./src/routes/logout');
 const pageSession = require("./src/middleware/pageSession");
-const userinfo = require("./src/routes/userInfo");
-
-const morgan = require("morgan");
-const nunjucks = require("nunjucks");
+const userinfo = require("./src/routes/bookmarkdata/userInfo");
+// const version = require('./src/routes/version');
+const morgan = require('morgan');
+const nunjucks = require('nunjucks');
+const deletebookmark = require('./src/routes/bookmarkdata/delectbookmark')
 
 const sessionMiddleware = require("./src/middleware/pageSession");
 const cookieParser = require("cookie-parser");
@@ -60,19 +61,24 @@ app.use(corsMiddleware);
 app.use(express.urlencoded({ extended: false }));
 app.use(sessionMiddleware);
 
-app.use("/api/login", loginRouter);
-app.use("/api/logout", logoutRouter);
-app.use("/api/join", joinRouter);
-app.use("/api/findId", findIdRouter);
-app.use("/api/findPassword", findPasswordRouter);
-app.use("/api/sendEmail-id", sendEmail_IdRouter);
-app.use("/api/sendEmail-password", sendEmail_PasswordRouter);
-app.use("/api/checkResetCode", checkCodeRouter);
 
-app.use("/api/bookMarks", bookMarRouter);
-app.use("/api/userinfo", userinfo);
+app.use('/api/login', loginRouter);
+app.use('/api/logout', logoutRouter);
+app.use('/api/join', joinRouter);
+app.use('/api/findId', findIdRouter);
+app.use('/api/findPassword', findPasswordRouter);
+app.use('/api/sendEmail-id', sendEmail_IdRouter);
+app.use('/api/sendEmail-password', sendEmail_PasswordRouter);
+app.use('/api/checkResetCode', checkCodeRouter);
+app.use('/api/deletebookmark',deletebookmark);
 
-app.use("/api/changePassword", changePasswordRouter);
+
+app.use('/api/bookMarks',bookMarRouter);
+app.use('/api/userinfo', userinfo);
+
+
+app.use('/api/changePassword', changePasswordRouter);
+
 
 
 app.use((req, res, next) => {

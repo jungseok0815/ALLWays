@@ -1,14 +1,12 @@
 body {
-  background-color: #6699cc;
-  margin: 0;
-  padding: 0;
+  background-color: #A4C1DE;
 }
 
 .outer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .box {
@@ -34,7 +32,7 @@ body {
   border-radius: 50px;
 }
 
-p {
+.mainp {
   text-align: center;
   font-weight: bold;
 }
@@ -42,6 +40,7 @@ p {
 .buttons {
   display: flex;
   justify-content: center;
+  gap: 15px;
 }
 
 .buttons button {
@@ -49,23 +48,7 @@ p {
   height: 40px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(051, 82, 143);
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 9px;
-}
-
-button + button {
-  margin-left: 15px;
-}
-
-.buttons button {
-  width: 180px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(051, 82, 143);
+  background-color: rgba(051, 82, 143, 0.8);
   color: white;
   font-weight: bold;
   font-size: 14px;

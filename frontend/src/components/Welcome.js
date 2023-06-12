@@ -6,6 +6,7 @@ import MapContainer from "../components/views/Landing/Sections/MapContainer";
 import { useRecoilState } from "recoil";
 import { userIdState } from "../state/atom";
 import "./Welcome.css";
+import logoImage from "../Allways.png";
 
 function Welcome() {
   const [searchPlace, setSearchPlace] = useState("");
@@ -113,7 +114,7 @@ function Welcome() {
       <nav className="navbar">
         <div className="navbar-left">
           <a href="/welcome" className="logo-link" onClick={handleGoToHomePage}>
-            <img src="./Allways.png" alt="Allways Logo" className="logo" />
+            <img src={logoImage} alt="Allways Logo" className="logo" />
             <span className="site-name" onClick={handleGoToHomePage}>
               Allways
             </span>
@@ -131,14 +132,6 @@ function Welcome() {
         </div>
       </nav>
       {renderedContent}
-      <div>
-        <h3>검색 기록:</h3>
-        <ul>
-          {searchHistory.map((search, index) => (
-            <li key={index}>{search}</li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 }

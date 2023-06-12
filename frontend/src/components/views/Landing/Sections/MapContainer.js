@@ -76,39 +76,10 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
         }
 
         map.setBounds(bounds);
-        displayPagination(pagination);
         setPlaces(data);
       }
     }
     
-
-    function displayPagination(pagination) {
-      const paginationEl = document.getElementById('pagination');
-      const fragment = document.createDocumentFragment();
-
-      while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild(paginationEl.lastChild);
-      }
-
-      for (let i = 1; i <= pagination.last; i++) {
-        const el = document.createElement('a');
-        el.href = '#';
-        el.innerHTML = i;
-
-        if (i === pagination.current) {
-          el.className = 'on';
-        } else {
-          el.onclick = (function (i) {
-            return function () {
-              pagination.gotoPage(i);
-            };
-          })(i);
-        }
-
-        fragment.appendChild(el);
-      }
-      paginationEl.appendChild(fragment);
-    }
 
     function displayMarker(place) {
       const marker = new kakao.maps.Marker({
@@ -129,35 +100,34 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
 
 
   return (
+    <div className="mrcontainer">
     <div className="map-container">
-      <div ref={mapRef} style={{ width: '60%', height: '500px' }}></div>
+      <div ref={mapRef} className="map"></div>
       <div className="result-container">
         {Places.map((item, i) => (
           <div key={i} className="search-result-item">
-            <h5>{item.place_name}</h5>
-            {item.road_address_name ? (
-              <div>
-                <span>{item.road_address_name}</span>
+            <div className="search-result-content">
+              <h5>{item.place_name}</h5>
+              {item.road_address_name ? (
+                <div className="resultname">
+                  <span>{item.road_address_name}</span>
+                  <span>{item.address_name}</span>
+                </div>
+              ) : (
                 <span>{item.address_name}</span>
+              )}
+              <div className="resultname">
+                <span>{item.phone}</span>
               </div>
-            ) : (
-              <span>{item.address_name}</span>
-            )}
-            <span>{item.phone}</span>
-            <button onClick={() => handleBookmark(item)}>즐겨찾기</button>
+              <div className="resultbtn">
+                <button onClick={() => handleBookmark(item)}>즐겨찾기</button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-  
-      <div className="pagination-container">
-        <div className="pagination" id="pagination"></div>
-      </div>
-      <div>
-      
     </div>
     </div>
-    
   );
-  
-          };
+};
  export default MapContainer;

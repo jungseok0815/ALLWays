@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
-import welcomeImage from "../welcome.jpg";
 import { useRecoilState } from "recoil";
 import { userIdState } from "../state/atom";
+import welcomeImage from "./mapproject1.jpg"
 
 function MainPage() {
   const [userId, setUserId] = useRecoilState(userIdState);

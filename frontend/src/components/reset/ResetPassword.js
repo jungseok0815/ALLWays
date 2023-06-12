@@ -45,23 +45,27 @@ function ResetPassword() {
         <h1 className="rpwdh">비밀번호 초기화</h1>
         <form onSubmit={handleSubmit}>
           <div className="rrow">
-            <label className="rpwdnew">새로운 비밀번호:</label>
-              <input
-                className="new"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+            <h3 className="reset_title">
+              <label className="rpwdnew">새로운 비밀번호</label>
+            </h3>
+            <input
+              className="new"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
           <div className="rrow">
-            <label className="rpwdcheck">비밀번호 확인:</label>
-              <input
-                className="check"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+            <h3 className="reset_title">
+              <label className="rpwdcheck">비밀번호 확인</label>
+            </h3>
+            <input
+              className="check"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </div>
           <button type="submit" className="rpwdbtn">비밀번호 초기화</button>
         </form>

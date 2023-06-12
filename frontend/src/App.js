@@ -72,7 +72,7 @@ import FindId from "./components/login/FindId";
 import FindPassword from "./components/login/FindPassword";
 import ResetPassword from "./components/reset/ResetPassword";
 import { RecoilRoot } from 'recoil';
-import MyPage  from "./components/mypage/MyPage";
+import MyPage  from './components/mypage/MyPage';
 
 import LandingPage from './components/views/Landing/LandingPage';
 import MapContainer from './components/views/Landing/Sections/MapContainer';

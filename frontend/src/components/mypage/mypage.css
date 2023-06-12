@@ -1,73 +1,72 @@
 .mrcontainer {
-    width: 100%;
-    display: flex;
-  }
-  
-  .map {
-    margin-top: 40px;
-    height: 600px;
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
+  width: 100%;
+  display: flex;
+}
+
+.map {
+  margin-top: 40px;
+  height: 600px;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .map-container {
-    display: flex;
-    width: 100%;
-    flex-grow: 1;
-    margin-left: 100px;
-  }
-  .result-container {
-    margin-top: 40px;
-    width: 28%;
-    height: 600px;
-    overflow: auto;
-    margin-left: 25px;
-    padding-right: 12px;
-    margin-right: 100px;
-  }
-  
-  .search-result-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-    padding-left: 30px;
-    margin-bottom: 16px;
-    font-family: "AppleSDGothicNeo-Regular", sans-serif; /* 폰트 스타일 */
-    font-size: 15px;
-    color: #333;
-    background-color: #fff;
-  }
-  .search-result-item h5 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    margin-left: 3px;
-  }
-  
-  .search-result-item span {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .search-result-item button {
-    width: 90px;
-    height: 30px;
-    letter-spacing: 2px;
-    background-color: rgba(051, 82, 143, 0.8);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    margin-left: 8px;
-  }
-  .resultname {
-    margin-left: 10px;
-  }
-  
-  .search-result-item button:hover {
-    background-color: rgb(051, 82, 143);
-  }
-  
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  margin-left: 100px;
+}
+.result-container {
+  margin-top: 40px;
+  width: 28%;
+  height: 600px;
+  overflow: auto;
+  margin-left: 25px;
+  padding-right: 12px;
+  margin-right: 100px;
+}
+
+.search-result-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+  padding-left: 30px;
+  margin-bottom: 16px;
+  font-family: "AppleSDGothicNeo-Regular", sans-serif; /* 폰트 스타일 */
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+}
+.search-result-item h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+}
+
+.search-result-item span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.search-result-item button {
+  width: 90px;
+  height: 30px;
+  letter-spacing: 2px;
+  background-color: rgba(051, 82, 143, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 8px;
+}
+.resultname {
+  margin-left: 10px;
+}
+
+.search-result-item button:hover {
+  background-color: rgb(051, 82, 143);
+}

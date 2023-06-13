@@ -1,40 +1,32 @@
 .landing-page {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;; 
+  align-items: flex-start;
   height: 100vh; /* 높이를 화면 전체 높이로 설정 */
   max-width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .search-form {
   display: flex;
-  width: 65%;
   align-items: center;
-  margin-top: 50px;
+  width: 66%;
 }
+
 
 .search-input {
-  display: flex-start;
-  height: 18px;
-  width: 230%;
+  height: 50px; /* 높이를 50px로 설정 */
   flex-grow: 1;
   border-radius: 5px;
-  padding: 10px;
-  margin-right: 10px;
+  padding: 30px;
+  margin-right: 10px; /* 오른쪽 여백 추가 */
   border-bottom: 2px solid #000;
-  margin-left: 12%;
-}
-
-.search-input::placeholder {
-  font-size: 15px;
-  letter-spacing: 1px;
 }
 
 .search-button {
-  width: 200px;
-  height: 38px;
+  width: 30%; /* 너비를 100px로 설정 */
+  height: 45px; /* 높이를 30px로 설정 */
   border-radius: 5px;
   cursor: pointer;
   font-size: 15px;
@@ -43,3 +35,9 @@
   letter-spacing: 7px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.search-input::placeholder {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+

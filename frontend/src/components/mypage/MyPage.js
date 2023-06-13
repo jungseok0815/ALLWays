@@ -13,10 +13,11 @@ const MyPage = () => {
   const [bookMark, setbookMark] = useState(null);
   const [marker2, setmaker2] = useState([]);
   const mapRef = useRef(null);
-
-  const [review, setReview] = useState(null);
+  const [currentPage, setCurrentPage] = useState("landing");
+  const [reviewText, setReviewText] = useState([]);
   const [selectedReviewIndices, setSelectedReviewIndices] = useState([]);
   const [reviewplacename, setReviewPlacename] = useState(null);
+  const navigate = useNavigate();
 
   const handleGoToHomePage = () => {
     if (currentPage !== "landing") {
@@ -115,6 +116,7 @@ const MyPage = () => {
         position: position.latlng,
         title: position.title,
         image: markerImage,
+        text: reviewText,
       });
     });
 
@@ -147,16 +149,27 @@ const MyPage = () => {
       }
     });
   };
+
+  const handleTextChange = (index, e) => {
+    const updatedReviews = [...reviewText];
+    updatedReviews[index] = { text: e.target.value };
+    setReviewText(updatedReviews);
+  };
+
   const handleReviewSave = (index) => {
+    const updatedReviews = [...reviewText];
     const reviewData = bookMark[index].place_name;
-    console.log(review, userId, reviewData);
+    const savedReviewText = updatedReviews[index].text; // 리뷰 텍스트를 저장합니다.
+  
+    console.log(savedReviewText, userId, reviewData);
     axios
       .post("http://localhost:8080/api/review", {
-        review,
+        reviewText: savedReviewText, // 저장한 리뷰 텍스트를 사용합니다.
         userId,
         reviewData,
       })
       .then((response) => {
+        setReviewText(savedReviewText);
         console.log(response);
       })
       .catch((error) => {
@@ -164,6 +177,7 @@ const MyPage = () => {
         console.log(error);
       });
   };
+  
 
   return (
     <div>
@@ -181,6 +195,7 @@ const MyPage = () => {
               </span>
             </a>
           </div>
+          <div className="navbar-center"></div>
           <div className="navbar-right">
             <a
               href="/mypage"
@@ -189,8 +204,6 @@ const MyPage = () => {
             >
               마이페이지
             </a>
-          </div>
-          <div className="navbar-right">
             <a href="/" className="logout" onClick={handleLogout}>
               로그아웃
             </a>
@@ -198,7 +211,7 @@ const MyPage = () => {
         </nav>
       </div>
       <div>
-        <h3 className="fv-list">즐겨찾기 항목</h3>
+        <h3 className="fv-list" >MyPage</h3>
         <div className="mrcontainer">
           <div className="map-container">
             <div ref={mapRef} className="map" />
@@ -209,8 +222,8 @@ const MyPage = () => {
                     <div className="textarea-item">
                       <textarea
                         type="review"
-                        value={review}
-                        onChange={(e) => setReview(e.target.value)}
+                        value={reviewText[index]?.text}
+                        onChange={(e) => handleTextChange(index, e)}
                       ></textarea>
                       <button onClick={() => handleReviewSave(index)}>
                         저장

@@ -1,23 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { review } = require("../../../models/index");
+const { review } = require("../../../models");
 
 router.post("/", async (req, res) => {
-  const { userid, place_name, memo } = req.body;
-
+  const { userId, reviewData, reviewText } = req.body;
+  console.log(userId, reviewData, reviewText);
   try {
-    const existReview = await review.findOne({
-      where: { userid, place_name },
-    });
-    if (existReview) {
-      return res
-        .status(409)
-        .send({ message: "이미 리뷰가 작성되었습니다." });
-    }
     const newReview = await review.create({
-      userid,
-      place_name,
-      memo,
+      userId,
+      reviewData,
+      reviewText,
     });
     return res.status(201).send({ message: "리뷰가 작성되었습니다." });
   } catch (error) {

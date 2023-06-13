@@ -13,7 +13,6 @@ const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-pa
 const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
 const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
 const bookMarRouter = require('./src/routes/bookmarkdata/bookMarkData');
-const reviewRouter = require('./src/routes/review/reviewData');
 const logoutRouter = require('./src/routes/logout');
 const pageSession = require("./src/middleware/pageSession");
 const userinfo = require("./src/routes/bookmarkdata/userInfo");
@@ -21,7 +20,7 @@ const userinfo = require("./src/routes/bookmarkdata/userInfo");
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const deletebookmark = require('./src/routes/bookmarkdata/delectbookmark')
-const review = require('./src/routes/bookmarkdata/review')
+const review = require('./src/routes/review/reviewData')
 
 const sessionMiddleware = require("./src/middleware/pageSession");
 const cookieParser = require("cookie-parser");

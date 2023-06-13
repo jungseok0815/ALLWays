@@ -38,13 +38,7 @@
   font-size: 15px;
   color: #333;
   background-color: #fff;
-  /*
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  */
+
 }
 
 .search-result-item h5 {

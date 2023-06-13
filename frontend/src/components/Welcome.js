@@ -124,13 +124,12 @@ function Welcome() {
           <a href="/mypage" className="mypage-link" onClick={handleGoToMyPage}>
             마이페이지
           </a>
-        </div>
-        <div className="navbar-right">
           <a href="/" className="logout" onClick={handleLogout}>
             로그아웃
           </a>
         </div>
       </nav>
+      <div className="fv-list">MainPage</div>
       {renderedContent}
     </div>
   );

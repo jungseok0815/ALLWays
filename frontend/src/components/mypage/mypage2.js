@@ -19,8 +19,6 @@ const MyPage = () => {
   const [reviewplacename, setReviewPlacename] = useState(null);
   const navigate = useNavigate();
 
-  const [listReview, setlistReview] = useState(null);
-
   const handleGoToHomePage = () => {
     if (currentPage !== "landing") {
       const session = localStorage.getItem("session");
@@ -157,36 +155,16 @@ const MyPage = () => {
     updatedReviews[index] = { text: e.target.value };
     setReviewText(updatedReviews);
   };
-  //get요청으로 테이블 조회후 맞는 값을 가져오는 코드
-  const handleReviewAxios = async (index) => {
-    const reviewData = bookMark[index].place_name;
-    console.log(reviewData);
-
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/api/review?reviewData=${reviewData}&userId=${userId}`
-      );
-      console.log(response.data);
-      const updateValue = response.data.reviewtext;
-      setlistReview(updateValue);
-    } catch (error) {
-      alert(error.response.data.message);
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    console.log(listReview);
-  }, [listReview]);
 
   const handleReviewSave = (index) => {
     const updatedReviews = [...reviewText];
     const reviewData = bookMark[index].place_name;
     const savedReviewText = updatedReviews[index].text; // 리뷰 텍스트를 저장합니다.
-
+  
     console.log(savedReviewText, userId, reviewData);
     axios
       .post("http://localhost:8080/api/review", {
-        reviewtext: savedReviewText, // 저장한 리뷰 텍스트를 사용합니다.
+        reviewText: savedReviewText, // 저장한 리뷰 텍스트를 사용합니다.
         userId,
         reviewData,
       })
@@ -198,6 +176,7 @@ const MyPage = () => {
         console.log(error);
       });
   };
+  
 
   return (
     <div>
@@ -231,7 +210,7 @@ const MyPage = () => {
         </nav>
       </div>
       <div>
-        <h3 className="fv-list">MyPage</h3>
+        <h3 className="fv-list" >즐겨찾기 항목</h3>
         <div className="mrcontainer">
           <div className="map-container">
             <div ref={mapRef} className="map" />
@@ -244,9 +223,7 @@ const MyPage = () => {
                         type="review"
                         value={reviewText[index]?.text}
                         onChange={(e) => handleTextChange(index, e)}
-                      >
-                        {listReview}
-                      </textarea>
+                      ></textarea>
                       <button onClick={() => handleReviewSave(index)}>
                         저장
                       </button>
@@ -273,12 +250,7 @@ const MyPage = () => {
                           >
                             이동
                           </button>
-                          <button
-                            onClick={() => {
-                              handleReviewClick(index);
-                              handleReviewAxios(index);
-                            }}
-                          >
+                          <button onClick={() => handleReviewClick(index)}>
                             리뷰 작성
                           </button>
                           <button onClick={() => deleteBookmark(bookMark)}>

@@ -20,7 +20,7 @@ const userinfo = require("./src/routes/bookmarkdata/userInfo");
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const deletebookmark = require('./src/routes/bookmarkdata/delectbookmark')
-const review = require('./src/routes/review/reviewData')
+const review = require('./src/routes/bookmarkdata/review')
 
 const sessionMiddleware = require("./src/middleware/pageSession");
 const cookieParser = require("cookie-parser");

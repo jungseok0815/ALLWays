@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
 import { useRecoilState } from "recoil";
 import { userIdState } from "../state/atom";
-import welcomeImage from "./mapproject1.jpg"
+import welcomeImage from "../welcome.jpg"
 
 function MainPage() {
   const [userId, setUserId] = useRecoilState(userIdState);
@@ -23,7 +23,7 @@ function MainPage() {
       <div className="box">
         <div className="content-container">
           <img src={welcomeImage} alt="Welcome" className="welcome-image" />
-          <p>어서오세요 !</p>
+          <p className="mainp">어서오세요 !</p>
           <div className="buttons">
             <form onSubmit={handleSubmit}>
               <button type="submit">로그인</button>

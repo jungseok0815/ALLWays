@@ -6,7 +6,7 @@ import MapContainer from "../components/views/Landing/Sections/MapContainer";
 import { useRecoilState } from "recoil";
 import { userIdState } from "../state/atom";
 import "./Welcome.css";
-import logoImage from "../Allways.png";
+import logoImage from "./mapproject.png";
 
 function Welcome() {
   const [searchPlace, setSearchPlace] = useState("");

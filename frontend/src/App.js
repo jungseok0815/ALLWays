@@ -16,6 +16,8 @@ import MapContainer from "./components/views/Landing/Sections/MapContainer";
 
 import AuthRoute from "./state/AuthRoute";
 
+import Memo from "./state/memo";
+
 import { useRecoilState } from "recoil";
 import { userIdState } from "./state/atom";
 
@@ -41,6 +43,8 @@ function App() {
           <Route path="/findpassword" element={<FindPassword />} />
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/memo" element={<Memo />} />
+
 
           <Route
             path="/LandingPage"

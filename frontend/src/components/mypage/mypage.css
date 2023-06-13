@@ -70,3 +70,40 @@
 .search-result-item button:hover {
   background-color: rgb(051, 82, 143);
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333;
+  padding: 10px 20px;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left .logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 20px;
+}
+
+.navbar-right .logout {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.navbar-right .mypage-link:hover {
+  text-decoration: underline;
+}

@@ -61,8 +61,8 @@ const MapContainer = ({ searchPlace, userBookmarks, setUserBookmarks }) => {
     const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const markers = [];
     const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
-      level: 3,
+      center: new kakao.maps.LatLng(37.3436868, 126.9536301),
+      level: 2,
     };
     const map = new kakao.maps.Map(mapRef.current, options);
     const ps = new kakao.maps.services.Places();

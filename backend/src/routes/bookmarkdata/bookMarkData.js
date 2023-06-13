@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   console.log(x,y);
 
   try {
-    const existFavorites = await bookMark.findOne({ where: {  place_name } });
+    const existFavorites = await bookMark.findOne({ where: {  userid, place_name } });
     if (existFavorites) {
       return res.status(409).send({ message: '이미 즐겨찾기에 추가된 항목입니다.' });
     }

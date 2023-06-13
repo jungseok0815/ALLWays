@@ -13,6 +13,7 @@ const sendEmail_PasswordRouter = require('./src/routes/findpassword/sendEmail-pa
 const checkCodeRouter = require('./src/routes/findpassword/resetcode/checkResetcode');
 const changePasswordRouter = require('./src/routes/findpassword/resetcode/changePassword');
 const bookMarRouter = require('./src/routes/bookmarkdata/bookMarkData');
+const reviewRouter = require('./src/routes/review/reviewData');
 const logoutRouter = require('./src/routes/logout');
 const pageSession = require("./src/middleware/pageSession");
 const userinfo = require("./src/routes/bookmarkdata/userInfo");
@@ -75,6 +76,8 @@ app.use('/api/deletebookmark',deletebookmark);
 
 app.use('/api/bookMarks',bookMarRouter);
 app.use('/api/userinfo', userinfo);
+
+app.use('/api/review',reviewRouter);
 
 
 app.use('/api/changePassword', changePasswordRouter);

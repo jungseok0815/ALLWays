@@ -20,6 +20,7 @@ const userinfo = require("./src/routes/bookmarkdata/userInfo");
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const deletebookmark = require('./src/routes/bookmarkdata/delectbookmark')
+const review = require('./src/routes/bookmarkdata/review')
 
 
 const sessionMiddleware = require('./src/middleware/pageSession');
@@ -73,7 +74,7 @@ app.use('/api/deletebookmark',deletebookmark);
 
 app.use('/api/bookMarks',bookMarRouter);
 app.use('/api/userinfo', userinfo);
-
+app.use('/api/review', review);
 
 app.use('/api/changePassword', changePasswordRouter);
 

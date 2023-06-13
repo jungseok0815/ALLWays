@@ -8,17 +8,17 @@ module.exports = (sequelize, DataTypes) => {
           primaryKey: true,
           
         },
-        userid: {
+        userId: {
           type: DataTypes.STRING(45),
           allowNull: false,
         },
 
-        place_name: {
+        reviewtext: {
           type: DataTypes.STRING(100),
           allowNull: false,
           
         },
-        memo: {
+        reviewData: {
             type: DataTypes.STRING(100),
             allowNull: false,
           },

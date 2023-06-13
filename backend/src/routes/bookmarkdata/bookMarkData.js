@@ -5,9 +5,11 @@ const {bookMark} = require('../../../models/index');
 router.post('/', async (req, res) => {
   const {userid, place_name, place_url, address_name, phone, x, y} = req.body;
   console.log(x,y);
+  console.log(userid);
 
   try {
     const existFavorites = await bookMark.findOne({ where: {  userid, place_name } });
+
     if (existFavorites) {
       return res.status(409).send({ message: '이미 즐겨찾기에 추가된 항목입니다.' });
     }

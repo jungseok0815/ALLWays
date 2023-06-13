@@ -26,6 +26,18 @@
   padding-right: 12px;
   margin-right: 100px;
 }
+.textarea-item{
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+  padding-left: 30px;
+  margin-top: 0%;
+  margin-bottom: 16px;
+  font-family: "AppleSDGothicNeo-Regular", sans-serif; /* 폰트 스타일 */
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+}
 
 .search-result-item {
   border: 1px solid #ddd;

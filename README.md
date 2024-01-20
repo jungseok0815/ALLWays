@@ -23,29 +23,29 @@
 ## 사용 라이브러리및 API
 - 카카오지도 API
 
+
 ## 실행 방법
 
 1. 프로젝트 레포지토리를 클론합니다.
 
 ```sh
-$ git clone https://github.com/jungseok0815/FinalProject.git
+$ git clone https://kdt-gitlab.elice.io/ai_track/class05/ai_project/team05/team05.git
 ```
 
-2. Java version "11.0.20"을 설치합니다.
-```sh
-https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html
-```
-3. apache-tomcat-8.5.93을 설치합니다.
-```sh
-https://tomcat.apache.org/tomcat-8.5-doc/index.html
-```
-4. apache-maven-3.9.5을 설치합니다.
-```sh
-https://maven.apache.org/docs/3.9.5/release-notes.html
-```
-5. Spring을 실행합니다.
+2. 프로젝트 실행에 필요한 패키지를 설치합니다.
 
-6. Tomcat v8.5 Server를 실행합니다.
+```sh
+$ cd front
+$ npm i
+
+$ cd back
+$ npm i
+```
+
+3. server을 실행합니다.
+```sh
+$ npm start
+```
 
 ## 데이터베이스
 # MYSQL DB

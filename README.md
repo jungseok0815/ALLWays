@@ -29,7 +29,7 @@
 1. 프로젝트 레포지토리를 클론합니다.
 
 ```sh
-$ git clone https://kdt-gitlab.elice.io/ai_track/class05/ai_project/team05/team05.git
+$ git clone [https://github.com/jungseok0815/ALLWays.git]
 ```
 
 2. 프로젝트 실행에 필요한 패키지를 설치합니다.

@@ -77,9 +77,9 @@ $ npm start
 
 ## 팀원 소개
 
-| 이름 | 포지션 | Contact |
-| --- | --- | --- |
-| 차정석 | Back-End,  |
+| 이름 | 포지션 |
+| --- | --- | 
+| 차정석 | Back-End, Leader |
 | 박종혁 | Back-End |
 | 박주민 | front-end |
 | 이기훈 | front-end |

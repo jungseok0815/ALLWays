@@ -10,15 +10,12 @@
 `Front-End` :  <img src="https://img.shields.io/badge/javascript-3178C6?style=flat-square&logo=javascript&logoColor=#F7DF1E"/>
 <img src="https://img.shields.io/badge/css3-3178C6?style=flat-square&logo=css3&logoColor=#1572B6"/>
 <img src="https://img.shields.io/badge/html5-3178C6?style=flat-square&logo=html5&logoColor=#E34F26"/>
-<img src="https://img.shields.io/badge/jquery-FF4154?style=flat-square&logo=jquery&logoColor=##0769AD"/>
+<img src="https://img.shields.io/badge/react-FF4154?style=flat-square&logo=react&logoColor=#E34F26"/>
 
-`Back-end`<img src="https://img.shields.io/badge/spring-E0234E?style=flat-square&logo=spring&logoColor=#6DB33F">
-<img src="https://img.shields.io/badge/springsecurity-3178C6?style=flat-square&logo=springsecurity&logoColor=#6DB33F"/>
-<img src="https://img.shields.io/badge/oracle-4479A1?style=flat-square&logo=oracle&logoColor=#F80000">
-<img src="https://img.shields.io/badge/apachetomcat-FF4154?style=flat-square&logo=apachetomcat&logoColor=#F8DC75">
+`Back-end`<img src="https://img.shields.io/badge/nodejs-E0234E?style=flat-square&logo=nodedotjs&logoColor=#6DB33F">
+<img src="https://img.shields.io/badge/mysql-3178C6?style=flat-square&logo=mysql&logoColor=#6DB33F"/>
 
 `Communication`
-<img src="https://img.shields.io/badge/notion-000000?style=flat-square&logo=notion&logoColor=white">
 <img src="https://img.shields.io/badge/github-181717?style=flat-square&logo=github&logoColor=white">
 
 ## 프로젝트 구조
@@ -77,12 +74,13 @@ https://maven.apache.org/docs/3.9.5/release-notes.html
   + 장소 즐겨찾기
 
 
+
 ## 팀원 소개
 
 | 이름 | 포지션 | Contact |
 | --- | --- | --- |
-| 임도현 | CA | gusehdla@naver.com |
-| 김기만 | IM | rlaksdk@nate.com |
-| 차정석 | GM | wjdtjr9401@naver.com |
-| 윤수진 | SM | 97123soo@naver.com |
+| 차정석 | CA | gusehdla@naver.com |
+| 박종혁 | IM | rlaksdk@nate.com |
+| 박주민 | GM | wjdtjr9401@naver.com |
+| 이기훈 | SM | 97123soo@naver.com |
 | 윤승희 | DM | cbcn123@naver.com |

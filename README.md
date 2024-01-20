@@ -79,8 +79,9 @@ $ npm start
 
 | 이름 | 포지션 | Contact |
 | --- | --- | --- |
-| 차정석 | CA | gusehdla@naver.com |
-| 박종혁 | IM | rlaksdk@nate.com |
-| 박주민 | GM | wjdtjr9401@naver.com |
-| 이기훈 | SM | 97123soo@naver.com |
-| 윤승희 | DM | cbcn123@naver.com |
+| 차정석 | Back-End,  |
+| 박종혁 | Back-End |
+| 박주민 | front-end |
+| 이기훈 | front-end |
+| 방서준 | front-end |
+| 변예진 | front-end |
